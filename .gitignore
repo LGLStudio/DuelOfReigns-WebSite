@@ -1,0 +1,57 @@
+# Dossiers et fichiers spécifiques à Node.js
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Fichiers générés par les outils de build
+/build
+
+# Fichiers générés par les environnements de développement
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Fichiers de cache
+.cache
+dist
+
+# Fichiers de log
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Fichiers de sauvegarde
+*.bak
+*.swp
+
+# Fichiers de configuration
+.eslintcache
+*.DS_Store
+
+# Fichiers de test
+/coverage
+
+# Fichiers de dépendances Yarn
+.yarn
+.yarnrc
+.yarn-integrity
+
+# Fichiers de dépendances npm
+package-lock.json
+
+# Exclusions pour les éditeurs
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
