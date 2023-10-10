@@ -15,7 +15,7 @@ const Footer = (props) => {
                                 <i class="ri-vip-crown-fill"></i>
                             </span> Duel of Reigns
                         </h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, repellendus. Sunt animi perspiciatis quidem aliquid minima non, quibusdam earum nostrum?</p>
+                        <p>Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie.</p>
                     </div>
                 </Col>
 
@@ -75,7 +75,7 @@ const Footer = (props) => {
 
                 <Col lg='3' md='6' sm='6'>
                     <h5>Newsletter</h5>
-                    <input type="text" className="newsletter" placeholder="Email" />
+                    <input type="text" className="newsletter" placeholder="Adresse Mail" />
                     <div className="social__links d-flex gap-3 align-items-center">
                         <span><Link to="#"><i class="ri-facebook-fill"></i></Link></span>
                         <span><Link to="#"><i class="ri-instagram-fill"></i></Link></span>
