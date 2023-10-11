@@ -53,7 +53,7 @@ section, footer {
 
 /* Scrollbar */
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 5px;
   background: #E6A58E;
 }
@@ -62,4 +62,4 @@ section, footer {
   border-radius: 2em;
   width: px;
   background: #FFF;
-}
+} */

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import skinPlaceholder from '../../../assets/images/hero-img.jpg';
+import skinPlaceholder from '../../../assets/images/boardgame-back.jpg';
+import avatarPlaceholder from '../../../assets/images/hero-img.jpg';
 
 import './SkinCard.css';
 
@@ -11,11 +12,11 @@ const SkinCard = () => {
             <img src={skinPlaceholder} className="w-100"/>
         </div>
         <div className="skin__content">
-            <h5 className="skin__title"><Link to='/marketplace/:userName/:skinId'>Chevalier Bucheron!</Link></h5>
+            <h5 className="skin__title"><Link to='/marketplace/:userName/:skinId'>Dos : Duel de Règne</Link></h5>
 
             <div className="skin__creator__info-wrapper d-flex gap-3">
                 <div className="skin__creator__img">
-                    <img src={skinPlaceholder} className="w-100"/>
+                    <img src={avatarPlaceholder} className="w-100"/>
                 </div>
                 
                 <div className="skin__creator__info w-100 d-flex align-items-center justify-content-between">

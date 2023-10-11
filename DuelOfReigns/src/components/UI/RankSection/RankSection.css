@@ -1,0 +1,16 @@
+.ranking__section-title {
+    color: #000000;
+}
+
+.rank__img {
+    width: 80px;
+    height: 80px;
+}
+
+.rank__img img {
+    border-radius: 80px;
+}
+
+.rank__content h6 {
+     font-size: 1rem;
+}

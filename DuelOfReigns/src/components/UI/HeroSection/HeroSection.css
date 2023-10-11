@@ -1,6 +1,7 @@
 .hero__section {
     padding: 120px;
-    background: #FFF1E6;    
+    background: #FFF1E6; 
+    margin-bottom: 60px;   
 }
 
 .hero__content h2 {

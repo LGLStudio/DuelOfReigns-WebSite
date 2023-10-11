@@ -1,0 +1,57 @@
+/* LoginSection.css */
+.login__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0px 0px 0px;
+}
+
+.image__section {
+    padding: 0;
+}
+
+.image__section img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.form__section {
+    background-color: #ffffff; /* Couleur de fond de la partie du formulaire */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login__form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login__form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Couleur du bouton de connexion */
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Couleur du bouton de connexion au survol */
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+}

@@ -37,9 +37,11 @@ const NewsSection = () => {
                                 <div className="news__image">
                                     <img src={crownImg} alt="Nouvelle Image" className="w-100" />
                                 </div>
-                                <h3 className="news__title">{news.title}</h3>
-                                <p className="news__description">{news.description}</p>
-                                <Link to={`/news/${news.title.replace(/\s+/g, '-').toLowerCase()}`}>En savoir plus</Link>
+                                <div className="news__info">
+                                    <h3 className="news__title">{news.title}</h3>
+                                    <p className="news__description">{news.description}</p>
+                                    <Link to={`/news/${news.title.replace(/\s+/g, '-').toLowerCase()}`}>En savoir plus</Link>
+                                </div>
                             </div>
                         </Col>
                     ))}
