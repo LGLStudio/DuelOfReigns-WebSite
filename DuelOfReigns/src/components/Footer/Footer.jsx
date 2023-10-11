@@ -26,13 +26,13 @@ const Footer = (props) => {
                             <Link to='#'>Editer</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Statistique</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Historique</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Skins</Link>
                         </ListGroupItem>
                     </ListGroup>
                 </Col>
@@ -41,16 +41,16 @@ const Footer = (props) => {
                     <h5>Ressources</h5>
                     <ListGroup className="list__group">
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Aide</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Partenaire</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Communauté</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Activité</Link>
                         </ListGroupItem>
                     </ListGroup>
                 </Col>
@@ -59,16 +59,16 @@ const Footer = (props) => {
                     <h5>Studio</h5>
                     <ListGroup className="list__group">
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>A Propos</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Créateur</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Projet</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>Contact</Link>
                         </ListGroupItem>
                     </ListGroup>
                 </Col>
@@ -81,7 +81,6 @@ const Footer = (props) => {
                         <span><Link to="#"><i class="ri-instagram-fill"></i></Link></span>
                         <span><Link to="#"><i class="ri-twitter-x-fill"></i></Link></span>
                         <span><Link to="#"><i class="ri-discord-fill"></i></Link></span>
-                        <span><Link to="#"><i class="ri-telegram-fill"></i></Link></span>
                     </div>
                 </Col>
                 <Col lg='12' className="mt-4 text-center">

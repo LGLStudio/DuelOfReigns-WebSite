@@ -4,7 +4,7 @@
 }
 
 .footer {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     background: #E6A58E;
 }
 
@@ -59,4 +59,6 @@
 
 .copyright {
     font-size: 0.8rem;
+    padding-top: 30px;
+    margin: 0px;
 }

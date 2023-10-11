@@ -50,3 +50,16 @@ ul {
 section, footer {
   padding: 60px 0px;
 }
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: #E6A58E;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2em;
+  width: px;
+  background: #FFF;
+}
