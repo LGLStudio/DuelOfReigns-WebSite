@@ -20,7 +20,8 @@ const RegisterSection = () => {
                     {/* Partie du formulaire */}
                     <Col lg="6" className="form__section d-flex align-items-center">
                         <div className="login__form">
-                            <h2>Inscription</h2>
+                            <h2>Bienvenue!</h2>
+                            <p>Vous avez déjà un compte ? <span><Link to="/login">Connectez-Vous</Link></span></p>
                             <Form>
                                 <div className="mb-3">
                                     <label htmlFor="pseudo" className="form-label">Pseudonyme</label>
@@ -38,9 +39,8 @@ const RegisterSection = () => {
                                     <label htmlFor="confirmPassword" className="form-label">Confirmer le mot de passe</label>
                                     <input type="password" className="form-control" id="confirmPassword" />
                                 </div>
-                                <Button type="submit" className="btn btn-primary">Créer un Compte</Button>
+                                <Button type="submit" className="btn__account">Inscription</Button>
                             </Form>
-                            <p>Vous avez déjà un compte <Link to="/login">Connectez-Vous</Link></p>
                         </div>
                     </Col>
                 </Row>

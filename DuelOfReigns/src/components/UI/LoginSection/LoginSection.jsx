@@ -20,19 +20,19 @@ const LoginSection = () => {
                     {/* Partie du formulaire */}
                     <Col lg="6" className="form__section d-flex align-items-center">
                         <div className="login__form">
-                            <h2>Connexion</h2>
+                            <h2>Bon Retour!</h2>
+                            <p>Vous n'avez pas de compte ? <span><Link to="/register">Inscrivez-vous</Link></span></p>
                             <Form>
-                                <div className="mb-3">
+                                <div className="login__input mb-3">
                                     <label htmlFor="email" className="form-label">Adresse Mail</label>
                                     <input type="email" className="form-control" id="email" />
                                 </div>
-                                <div className="mb-3">
+                                <div className="login__input mb-3">
                                     <label htmlFor="password" className="form-label">Mot de passe</label>
                                     <input type="password" className="form-control" id="password" />
                                 </div>
-                                <Button type="submit" className="btn btn-primary">Se connecter</Button>
+                                <Button type="submit" className="btn__account">Connexion</Button>
                             </Form>
-                            <p>Vous n'avez pas de compte? <Link to="/register">Inscrivez-vous</Link></p>
                         </div>
                     </Col>
                 </Row>

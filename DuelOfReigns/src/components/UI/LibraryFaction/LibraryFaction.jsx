@@ -18,9 +18,8 @@ const LibraryFaction = () => {
                 <Col lg='12' className="mb-4">
                     <div className="live__auction__top d-flex align-items-center justify-content-between">
                         <h2>Factions</h2>
-                        
                     </div>
-                    <p>Il existe plusieurs factions au sein de Duel Reigns. Chacune d'entre elles apporte sa propre perspective, ses motivations et son rôle unique. Ces factions peuvent former des alliances ou se lancer dans des affrontements épiques. Voici un aperçu des principales factions que vous pouvez rencontrer.</p>
+                    <p className="text-right">Il existe plusieurs factions au sein de Duel Reigns. Chacune d'entre elles apporte sa propre perspective, ses motivations et son rôle unique. Ces factions peuvent former des alliances ou se lancer dans des affrontements épiques. Voici un aperçu des principales factions que vous pouvez rencontrer.</p>
                 </Col>
 
                 <Col lg='3'>
