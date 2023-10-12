@@ -22,7 +22,7 @@ const LibraryFaction = () => {
                     <p className="text-right">Il existe plusieurs factions au sein de Duel Reigns. Chacune d'entre elles apporte sa propre perspective, ses motivations et son rôle unique. Ces factions peuvent former des alliances ou se lancer dans des affrontements épiques. Voici un aperçu des principales factions que vous pouvez rencontrer.</p>
                 </Col>
 
-                <Col lg='3'>
+                <Col lg='3' md='4' sm='6'>
                     <div className="single__hero__card">
                         <div className="card__img">
                             <img src={demonImg} className="w-100"/>
@@ -32,7 +32,7 @@ const LibraryFaction = () => {
                         </div>
                     </div>
                 </Col>
-                <Col lg='3'>
+                <Col lg='3' md='4' sm='6'>
                     <div className="single__hero__card">
                         <div className="card__img">
                             <img src={orcImg} className="w-100"/>
@@ -42,7 +42,7 @@ const LibraryFaction = () => {
                         </div>
                     </div>
                 </Col>
-                <Col lg='3'>
+                <Col lg='3' md='4' sm='6'>
                     <div className="single__hero__card">
                         <div className="card__img">
                             <img src={elveImg} className="w-100"/>
@@ -52,7 +52,7 @@ const LibraryFaction = () => {
                         </div>
                     </div>
                 </Col>
-                <Col lg='3'>
+                <Col lg='3' md='4' sm='6'>
                     <div className="single__hero__card">
                         <div className="card__img">
                             <img src={humanImg} className="w-100"/>

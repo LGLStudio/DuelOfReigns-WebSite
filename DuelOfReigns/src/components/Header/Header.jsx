@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Container } from 'reactstrap';
 import { NavLink, Link } from "react-router-dom";
 
 import './Header.css';
 import 'remixicon/fonts/remixicon.css';
 
-const Header = (props) => {
+const Header = () => {
+
+    const menuRef = useRef(null);
+    const toggleMenu = () => menuRef.current.classList.toggle('active__menu');
+
     return <header className="header">
         <Container>
             <div className="navigation">
@@ -19,7 +23,7 @@ const Header = (props) => {
                     </h2>
                 </div>
 
-                <div className="nav__menu">
+                <div className="nav__menu" ref={menuRef} onClick={toggleMenu }>
                     <ul className="nav__list">
                         <li className="nav__item">
                             <NavLink to="/home" className={ navClass => navClass.isActive ? 'active' : ''}>Accueil</NavLink>
@@ -50,7 +54,7 @@ const Header = (props) => {
                     </Link>
                     
                     <span className="mobile__menu">
-                        <i class="ri-menu-line"></i>
+                        <i class="ri-menu-line" onClick={toggleMenu}></i>
                     </span>                
                 </div>
             </div>

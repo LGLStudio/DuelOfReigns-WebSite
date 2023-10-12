@@ -25,7 +25,7 @@ const HeroSection = () => {
                             <Link to="/tutorial">
                                 <button className=" tutorial__btn d-flex align-items-center gap-2">
                                     <i className="ri-ruler-line"></i> 
-                                    Règle du Jeu
+                                    Tutoriel
                                 </button>
                             </Link>
                         </div>
