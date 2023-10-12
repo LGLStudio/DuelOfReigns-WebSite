@@ -16,14 +16,18 @@ const HeroSection = () => {
                         <h2>Duel of Reigns</h2>
                         <p>Plongez dans l'univers de <b><i>Duel of Reigns</i></b>, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie. Tissez des alliances stratégiques entre factions, consolidant ainsi votre pouvoir, afin d'imposer votre règne indéfectible !</p>
                         <div className="hero__btns d-flex align-items-center gap-4">
-                            <button className="download__btn d-flex align-items-center gap-2">
-                                <i className="ri-download-line"></i> 
-                                <Link to="https://www.dropbox.com/s/w3clg5ymy64cy64/BuildLauncher.zip?dl=1">Télécharger</Link>
-                            </button>
-                            <button className=" tutorial__btn d-flex align-items-center gap-2">
-                                <i className="ri-ruler-line"></i> 
-                                <Link to="/tutorial">Règle du Jeu</Link>
-                            </button>
+                            <Link to="https://www.dropbox.com/s/w3clg5ymy64cy64/BuildLauncher.zip?dl=1">
+                                <button className="download__btn d-flex align-items-center gap-2">
+                                    <i className="ri-download-line"></i> 
+                                    Télécharger
+                                </button>
+                            </Link>
+                            <Link to="/tutorial">
+                                <button className=" tutorial__btn d-flex align-items-center gap-2">
+                                    <i className="ri-ruler-line"></i> 
+                                    Règle du Jeu
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </Col>

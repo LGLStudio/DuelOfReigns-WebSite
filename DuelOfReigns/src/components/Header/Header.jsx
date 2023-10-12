@@ -11,9 +11,11 @@ const Header = (props) => {
             <div className="navigation">
                 <div className="logo">
                     <h2 className="d-flex gap-2 align-items-center">
-                        <span>
-                            <i class="ri-vip-crown-fill"></i>
-                        </span>
+                        <Link to='/home'>
+                            <span>
+                                <i class="ri-vip-crown-fill"></i>
+                            </span>
+                        </Link>
                     </h2>
                 </div>
 
@@ -38,12 +40,14 @@ const Header = (props) => {
                 </div>
 
                 <div className="nav__right d-flex align-items-center gap-5">
-                    <button className="btn d-flex gap-2 align-items-center">
-                        <span>
-                            <i class="ri-account-circle-line"></i>
-                        </span>
-                        <Link to='/register'>Inscription</Link>
-                    </button>
+                    <Link to='/register'>
+                        <button className="btn d-flex gap-2 align-items-center">
+                            <span>
+                                <i class="ri-account-circle-line"></i>
+                            </span>
+                            Inscription
+                        </button>
+                    </Link>
                     
                     <span className="mobile__menu">
                         <i class="ri-menu-line"></i>

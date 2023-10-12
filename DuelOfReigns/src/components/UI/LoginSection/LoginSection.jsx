@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Form, Button } from 'reactstrap';
+import { Container, Row, Col, Form } from 'reactstrap';
 import { Link } from "react-router-dom";
 
 import './LoginSection.css'; // Assurez-vous d'ajouter le CSS approprié pour le style
@@ -23,15 +23,15 @@ const LoginSection = () => {
                             <h2>Bon Retour!</h2>
                             <p>Vous n'avez pas de compte ? <span><Link to="/register">Inscrivez-vous</Link></span></p>
                             <Form>
-                                <div className="login__input mb-3">
+                                <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Adresse Mail</label>
                                     <input type="email" className="form-control" id="email" />
                                 </div>
-                                <div className="login__input mb-3">
+                                <div className="mb-4   ">
                                     <label htmlFor="password" className="form-label">Mot de passe</label>
                                     <input type="password" className="form-control" id="password" />
                                 </div>
-                                <Button type="submit" className="btn__account">Connexion</Button>
+                                <button type="submit" className="btn__account">Se Connecter</button>
                             </Form>
                         </div>
                     </Col>

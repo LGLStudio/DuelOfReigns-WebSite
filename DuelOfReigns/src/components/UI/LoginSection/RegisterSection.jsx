@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Form, Button } from 'reactstrap';
+import { Container, Row, Col, Form } from 'reactstrap';
 import { Link } from "react-router-dom";
 
 import './LoginSection.css'; // Assurez-vous d'ajouter le CSS approprié pour le style
@@ -35,11 +35,11 @@ const RegisterSection = () => {
                                     <label htmlFor="password" className="form-label">Mot de passe</label>
                                     <input type="password" className="form-control" id="password" />
                                 </div>
-                                <div className="mb-3">
+                                <div className="mb-4">
                                     <label htmlFor="confirmPassword" className="form-label">Confirmer le mot de passe</label>
                                     <input type="password" className="form-control" id="confirmPassword" />
                                 </div>
-                                <Button type="submit" className="btn__account">Inscription</Button>
+                                <button type="submit" className="btn__account">S'Inscrire</button>
                             </Form>
                         </div>
                     </Col>

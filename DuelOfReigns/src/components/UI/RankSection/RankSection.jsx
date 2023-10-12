@@ -6,12 +6,12 @@ import avatarURL from '../../../assets/images/hero-img.jpg'
 import './RankSection.css';
 
 const RankSection = () => {
-    return <section>
+    return <section className="rank__section">
         <Container>
             <Row>
                 <Col lg='12'>
                     <div className="ranking__section-title mb-5">
-                        <h2>Classement</h2>
+                        <h2>Classement Hebdomadaire</h2>
                     </div>
                 </Col>
                 <Col lg='2' md='3' sm='4' xs='6' className="mb-4">

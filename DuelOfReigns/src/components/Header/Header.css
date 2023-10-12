@@ -37,9 +37,11 @@
 }
 
 .btn {
+    border: none;
+    outline: none;
     padding: 7px 25px;
-    border: 1px solid #000000;
     border-radius: 50px;
+    border: 1px solid #000000;
 }
 
 .nav__right .btn a {

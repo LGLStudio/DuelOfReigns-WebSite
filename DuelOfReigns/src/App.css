@@ -47,6 +47,12 @@ ul {
   margin: 0;
 }
 
+input[type="text"], input[type="email"], input[type="password"] {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+
 section, footer {
   padding: 60px 0px;
 }

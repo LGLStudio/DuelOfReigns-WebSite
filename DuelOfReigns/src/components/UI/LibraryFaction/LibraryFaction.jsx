@@ -64,7 +64,9 @@ const LibraryFaction = () => {
                 </Col>
                 <Col lg='12'>
                     <div className="btn__area text-center">
-                        <span className="btn"><i className="ri-book-mark-line"></i> <Link to='/library'>Explorer</Link></span>
+                        <Link to='/library'>
+                            <span className="btn"><i className="ri-book-mark-line"></i> Explorer</span>
+                        </Link>
                     </div>
                 </Col>
             </Row>
