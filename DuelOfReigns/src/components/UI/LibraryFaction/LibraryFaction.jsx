@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from 'reactstrap';
+import {Container, Row, Col, Button} from 'reactstrap';
 import { Link } from "react-router-dom";
 
 import demonImg from '../../../assets/images/card-demon-placeholder.png';
@@ -63,11 +63,14 @@ const LibraryFaction = () => {
                     </div>
                 </Col>
                 <Col lg='12'>
-                    <div className="btn__area text-center">
+                    <Button
+                        color={"secondary"}
+                        outline={true}
+                        className="btn__area text-center">
                         <Link to='/library'>
-                            <span className="btn"><i className="ri-book-mark-line"></i> Explorer</span>
+                            <span><i className="ri-book-mark-line"></i>Explorer</span>
                         </Link>
-                    </div>
+                    </Button>
                 </Col>
             </Row>
         </Container>

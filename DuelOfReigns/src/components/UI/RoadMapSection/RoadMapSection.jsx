@@ -13,7 +13,7 @@ const RoadMapSection = () => {
                 </Col>
                 <Col lg='3'>
                     <div className="single__roadmap__item">
-                        <span><i class="ri-check-double-line"></i></span>
+                        <span><i className="ri-check-double-line"></i></span>
                         <div className="roadmap__item__content">
                             <h5>
                                 <Link to='/register'>Créer un Compte</Link>
@@ -24,7 +24,7 @@ const RoadMapSection = () => {
                 </Col>
                 <Col lg='3'>
                     <div className="single__roadmap__item">
-                        <span><i class="ri-check-double-line"></i></span>
+                        <span><i className="ri-check-double-line"></i></span>
                         <div className="roadmap__item__content">
                             <h5>
                                 <Link to='/register'>Créer un Compte</Link>
@@ -35,7 +35,7 @@ const RoadMapSection = () => {
                 </Col>
                 <Col lg='3'>
                     <div className="single__roadmap__item">
-                        <span><i class="ri-check-double-line"></i></span>
+                        <span><i className="ri-check-double-line"></i></span>
                         <div className="roadmap__item__content">
                             <h5>
                                 <Link to='/register'>Créer un Compte</Link>
@@ -46,7 +46,7 @@ const RoadMapSection = () => {
                 </Col>
                 <Col lg='3'>
                     <div className="single__roadmap__item">
-                        <span><i class="ri-check-double-line"></i></span>
+                        <span><i className="ri-check-double-line"></i></span>
                         <div className="roadmap__item__content">
                             <h5>
                                 <Link to='/register'>Créer un Compte</Link>

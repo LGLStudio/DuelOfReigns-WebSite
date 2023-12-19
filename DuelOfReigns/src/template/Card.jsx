@@ -24,10 +24,10 @@
         </div>
 
         <div className="d-flex align-items-center justify-content-between">
-            <button className="buy__btn d-flex align-items-center gap-2">
+            <Button className="buy__btn d-flex align-items-center gap-2">
                 <i className="ri-shopping-bag-line"></i>
                 Acheter
-            </button>
+            </Button>
             <span>
                 <Link to="#">Voir Historique</Link>
             </span>

@@ -1,11 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import {Container, Row, Col, Button} from "reactstrap";
 import { Link } from "react-router-dom";
 
 import './HeroSection.css';
 
 import heroImg from '../../../assets/images/hero-img.png';
 import crownImg from '../../../assets/images/crown.png';
+import {LAUNCHER_URL} from "../../../utils/misc.js";
 
 const HeroSection = () => {
     return <section className="hero__section">
@@ -16,17 +17,23 @@ const HeroSection = () => {
                         <h2>Duel of Reigns</h2>
                         <p>Plongez dans l'univers de <b><i>Duel of Reigns</i></b>, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie. Tissez des alliances stratégiques entre factions, consolidant ainsi votre pouvoir, afin d'imposer votre règne indéfectible !</p>
                         <div className="hero__btns d-flex align-items-center gap-4">
-                            <Link to="https://www.dropbox.com/s/w3clg5ymy64cy64/BuildLauncher.zip?dl=1">
-                                <button className="download__btn d-flex align-items-center gap-2">
+                            <Link to={LAUNCHER_URL}>
+                                <Button
+                                    color={"warning"}
+                                    outline={true}
+                                    className="download__btn d-flex align-items-center gap-2">
                                     <i className="ri-download-line"></i> 
                                     Télécharger
-                                </button>
+                                </Button>
                             </Link>
                             <Link to="/tutorial">
-                                <button className=" tutorial__btn d-flex align-items-center gap-2">
+                                <Button
+                                    outline={true}
+                                    color={"warning"}
+                                    className=" tutorial__btn d-flex align-items-center gap-2">
                                     <i className="ri-ruler-line"></i> 
                                     Tutoriel
-                                </button>
+                                </Button>
                             </Link>
                         </div>
                     </div>

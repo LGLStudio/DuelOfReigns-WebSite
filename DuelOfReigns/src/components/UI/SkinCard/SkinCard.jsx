@@ -5,6 +5,7 @@ import skinPlaceholder from '../../../assets/images/boardgame-back.jpg';
 import avatarPlaceholder from '../../../assets/images/hero-img.jpg';
 
 import './SkinCard.css';
+import {Button} from "reactstrap";
 
 const SkinCard = () => {
     return <div className="single__skin__card">
@@ -33,10 +34,12 @@ const SkinCard = () => {
             </div>
 
             <div className="mt-3 d-flex align-items-center justify-content-between">
-                <button className="buy__btn d-flex align-items-center gap-2">
+                <Button
+                    color="primary"
+                    className="d-flex align-items-center gap-2">
                     <i className="ri-shopping-bag-line"></i>
                     Acheter
-                </button>
+                </Button>
                 <span className="history__link">
                     <Link to="#">Historique</Link>
                 </span>

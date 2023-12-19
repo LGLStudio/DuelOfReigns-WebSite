@@ -13,7 +13,9 @@ import RegisterPage from "../pages/RegisterPage";
 import ContactPage from "../pages/ContactPage";
 
 const Routers = () => {
-    return <Routes>
+    return (
+
+        <Routes>
             <Route path="/" element={<Navigate to = '/home'/>}/>
             <Route path="/home" element={<HomePage/>}/>
             <Route path="/library" element={<LibraryPage/>}/>
@@ -25,6 +27,7 @@ const Routers = () => {
             <Route path="/register" element={<RegisterPage/>}/>
             <Route path="/contact" element={<ContactPage/>}/>
         </Routes>
+    )
 };
 
 export default Routers

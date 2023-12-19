@@ -12,7 +12,7 @@ const Footer = (props) => {
                     <div className="logo">
                         <h2 className="d-flex gap-2 align-items-center">
                             <span>
-                                <i class="ri-vip-crown-fill"></i>
+                                <i className="ri-vip-crown-fill"></i>
                             </span> Duel of Reigns
                         </h2>
                         <p>Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie.</p>
@@ -77,16 +77,18 @@ const Footer = (props) => {
                     <h5>Newsletter</h5>
                     <input type="text" className="newsletter" placeholder="Adresse Mail" />
                     <div className="social__links d-flex gap-3 align-items-center">
-                        <span><Link to="#"><i class="ri-facebook-fill"></i></Link></span>
-                        <span><Link to="#"><i class="ri-instagram-fill"></i></Link></span>
-                        <span><Link to="#"><i class="ri-twitter-x-fill"></i></Link></span>
-                        <span><Link to="#"><i class="ri-discord-fill"></i></Link></span>
+                        <span><Link to="#"><i className="ri-facebook-fill"></i></Link></span>
+                        <span><Link to="#"><i className="ri-instagram-fill"></i></Link></span>
+                        <span><Link to="#"><i className="ri-twitter-x-fill"></i></Link></span>
+                        <span><Link to="#"><i className="ri-discord-fill"></i></Link></span>
                     </div>
                 </Col>
                 <Col lg='12' className="mt-4 text-center">
                     {" "}
                     <p className="copyright">Copyright 2023, Developed by LGL Studio. Tous droits réservés.</p>
                     {" "}
+                    <span><Link to="/privacy-and-terms"> Politique de confidentialité et conditions d'utilisation.</Link></span>
+
                 </Col>
             </Row>
         </Container>
