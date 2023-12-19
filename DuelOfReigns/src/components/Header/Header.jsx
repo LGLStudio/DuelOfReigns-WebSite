@@ -57,6 +57,12 @@ const Header = () => {
                             <NavLink to="/contact"
                                      className={navClass => navClass.isActive ? 'active' : ''}>Contact</NavLink>
                         </li>
+                        {auth.user && <li className="nav__item">
+                            <NavLink to="/profile"
+                                     className={navClass => navClass.isActive ? 'active' : ''}>Profile</NavLink>
+                        </li>
+                        }
+
                         <li>
                             <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={"down"}>
                                 <DropdownToggle
@@ -79,7 +85,7 @@ const Header = () => {
                     {auth.user ? (
                         <Button
                             onClick={() => auth.signout()}
-                            color="warning"
+                            color="danger"
                             outline
                             className="btn d-flex gap-2 align-items-center">
                             <span>

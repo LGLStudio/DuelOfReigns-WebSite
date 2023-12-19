@@ -6,7 +6,6 @@ import React, {useEffect, useState} from "react";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {getAppInstance} from "../../../utils/firebase.js";
 import {useAuth} from "../../../AuthProvider.jsx";
-import BlockHeader from "../BlockHeader/BlockHeader.jsx";
 import imgSrc from '../../../assets/images/boardgame-back.jpg'
 
 const LoginSection = () => {

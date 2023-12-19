@@ -13,6 +13,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import PrivacyAndTerms from "./pages/PrivacyAndTerms.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/" element={<Navigate to='/home'/>}/>
                     <Route path="/home" element={<HomePage/>}/>
                     <Route path="/library" element={<LibraryPage/>}/>
+                    <Route path="/profile" element={<ProfilePage/>}/>
                     <Route path="/library/:id" element={<CardDetailsPage/>}/>
                     <Route path="/tutorial" element={<TutorialPage/>}/>
                     <Route path="/market" element={<MarketPage/>}/>
