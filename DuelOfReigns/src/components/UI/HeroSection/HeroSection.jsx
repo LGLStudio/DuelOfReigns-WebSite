@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 
 import './HeroSection.css';
 
-import heroImg from '../../../assets/images/hero-img.png';
 import crownImg from '../../../assets/images/crown.png';
 import {LAUNCHER_URL} from "../../../utils/misc.js";
 import {t} from "i18next";
@@ -27,7 +26,7 @@ const HeroSection = () => {
                                     outline={true}
                                     className="download__btn d-flex align-items-center gap-2">
                                     <i className="ri-download-line"></i>
-                                    Télécharger
+                                    {t('button.download')}
                                 </Button>
                             </Link>
                             <Link to="/tutorial">

@@ -33,7 +33,6 @@ const LoginSection = () => {
     }, []);
 
     const handleLogin = (event) => {
-        console.log("ev = ",event)
         event.preventDefault();
         if (authInstance) {
             signInWithEmailAndPassword(authInstance, email, password)

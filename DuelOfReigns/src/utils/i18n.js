@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import {initReactI18next} from "react-i18next";
-import HeroSection from "../components/UI/HeroSection/HeroSection.jsx";
 
 // the translations
 // (tip move them in a JSON file and import them,
@@ -59,6 +58,6 @@ i18n
         interpolation: {
             escapeValue: false // react already safes from xss
         }
-    }).then(r => console.log("r", r));
+    });
 
 export default i18n;

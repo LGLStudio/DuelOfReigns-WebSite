@@ -20,7 +20,7 @@ const Header = () => {
      * @param initials
      */
     const changeLanguage = (initials) => {
-        i18n.changeLanguage(initials).then(r => console.log(r));
+        i18n.changeLanguage(initials);
     };
     return <header className="header">
         <Container>
@@ -73,7 +73,6 @@ const Header = () => {
                                         marginRight: "0.33rem",
                                     }}
                                     caret
-                                    onChange={changeLanguage}
                                 >
                                     🌍 {i18n.language}
                                 </DropdownToggle>

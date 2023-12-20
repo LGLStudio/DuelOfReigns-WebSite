@@ -25,7 +25,7 @@ function App() {
                     <Route path="/" element={<Navigate to='/home'/>}/>
                     <Route path="/home" element={<HomePage/>}/>
                     <Route path="/library" element={<LibraryPage/>}/>
-                    <Route path="/profile" element={<ProfilePage/>}/>
+                    {/*<Route path="/profile" element={<ProfilePage/>}/>*/}
                     <Route path="/library/:id" element={<CardDetailsPage/>}/>
                     <Route path="/tutorial" element={<TutorialPage/>}/>
                     <Route path="/market" element={<MarketPage/>}/>
@@ -35,10 +35,10 @@ function App() {
                     <Route path="/contact" element={<ContactPage/>}/>
                     <Route path="/privacy-and-terms" element={<PrivacyAndTerms/>}/>
                     <Route
-                        path="/profil"
+                        path="/profile"
                         element={
                             <RequireAuth>
-                                {/*<Profil />*/}
+                                <ProfilePage/>
                             </RequireAuth>
                         }
                     />
@@ -59,7 +59,6 @@ const RequireAuth = ({children}) => {
         // along to that page after they login, rather than dropping them off on the home page.
         return <Navigate to="/login" state={{from: location}} replace/>;
     }
-
     return children;
 };
 
