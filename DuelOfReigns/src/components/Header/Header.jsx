@@ -66,6 +66,12 @@ const Header = () => {
                         <li>
                             <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={"down"}>
                                 <DropdownToggle
+                                    style={{
+                                        border: "none",
+                                        background: "none",
+                                        color: "black",
+                                        marginRight: "0.33rem",
+                                    }}
                                     caret
                                     onChange={changeLanguage}
                                 >
@@ -116,9 +122,7 @@ const Header = () => {
                                 </Button>
                             </Link>
                         </>
-
                     )}
-
                     <span className="mobile__menu">
                         <i className="ri-menu-line" onClick={toggleMenu}></i>
                     </span>
