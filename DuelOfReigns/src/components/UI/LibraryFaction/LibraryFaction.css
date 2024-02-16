@@ -1,0 +1,16 @@
+.single__hero__card {
+    border-radius: 25px;
+    margin: 0.25rem 0 0.25rem 0;
+}
+
+.single__hero__card:hover {
+    box-shadow: 5px 5px 15px 5px #969292;
+}
+
+.btn__area {
+    margin-top: 30px;
+}
+
+.card__content .card__title {
+    padding-top: 20px;
+}

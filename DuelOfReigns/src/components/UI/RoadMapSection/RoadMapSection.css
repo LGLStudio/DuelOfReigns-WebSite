@@ -1,0 +1,26 @@
+.single__roadmap__item {
+    background: #FFF1E6;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.roadmap__title {
+    color: #000000;
+}
+
+.roadmap__item__content h5 a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.single__roadmap__item span i {
+    color: #000000;
+    padding: 15px;
+    font-size: 1.5rem;
+    background: #E6A58E;
+    border-radius: 5px;
+}
+
+.roadmap__item__content {
+    margin-top: 20px;
+}

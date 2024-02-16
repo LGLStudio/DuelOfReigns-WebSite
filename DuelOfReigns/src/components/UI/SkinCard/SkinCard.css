@@ -1,0 +1,71 @@
+.single__skin__card {
+    padding: 20px;
+    background: #FFF1E6;
+    border-radius: 25px;
+}
+
+.skin__content .skin__title {
+    padding-top: 20px;
+}
+
+.skin__img img {
+    border-radius: 10px;
+}
+
+.skin__img {
+    margin-bottom: 10px;
+}
+
+.skin__title {
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.skin__creator__img {
+    width: 40px;
+    height: 40px;
+}
+
+.skin__creator__img img {
+    border-radius: 50px;
+}
+
+.skin__creator__info h6 {
+    font-size: 0.8rem;
+    color: #000;
+    opacity: 80%;
+    margin-bottom: 0;
+}
+
+.skin__creator__info p {
+    font-size: 0.7rem;
+    columns: #FFFFFF;
+    opacity: 100%;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.buy__btn {
+    border: none;
+    outline: none;
+    padding: 5px 22px;
+    background: transparent;
+    border: 1px solid #000000;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.buy__btn:hover {
+    background: #E6A58E;
+    border-color: #E6A58E;
+    color: white;
+}
+
+.history__link a {
+    text-decoration: none;
+    color: #000000;
+    opacity: 85%;
+    font-size: 0.9rem;
+}

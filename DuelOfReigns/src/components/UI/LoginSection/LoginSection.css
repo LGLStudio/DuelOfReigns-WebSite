@@ -1,0 +1,69 @@
+/* LoginSection.css */
+.login__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px 0px 0px;
+}
+
+.image__section {
+    padding: 0;
+}
+
+.image__section img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.form__section {
+    background-color: #ffffff; /* Couleur de fond de la partie du formulaire */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login__form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login__form h2 {
+    font-weight: 300;
+}
+
+.login__form p {
+    font-weight: 300;
+}
+
+.login__form p span {
+    color: #ba7961;
+}
+
+.form-label {
+    font-weight: 300;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.btn__account {
+    outline: none;
+    padding: 7px 25px;
+    border-radius: 50px;
+    border: 1px solid #000000;
+    font-size: 0.9rem;
+    background: transparent;
+}
+
+.login-error {
+    color: red;
+}
