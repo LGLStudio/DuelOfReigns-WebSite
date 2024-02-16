@@ -1,5 +1,5 @@
-import {Container, Row, Col, Form, Button, FormGroup, Input} from 'reactstrap';
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Container, Row, Col, Form, Button} from 'reactstrap';
+import {useLocation, useNavigate} from "react-router-dom";
 import './LoginSection.css';
 import {useTranslation} from "react-i18next";
 import React, {useEffect, useState} from "react";
@@ -32,6 +32,10 @@ const LoginSection = () => {
             });
     }, []);
 
+    useEffect(() => {
+
+    }, [apiError])
+
     const handleLogin = (event) => {
         event.preventDefault();
         if (authInstance) {
@@ -54,7 +58,7 @@ const LoginSection = () => {
                     } else if (error.code === "auth/invalid-email") {
                         setApiError(`${t("login.form.error.invalidEmail")}`);
                     } else {
-                        setApiError(`Erreur FIREBASE ${error.code} ${error.message}`);
+                        setApiError(`${error.message}`);
                     }
                     console.error(`Erreur FIREBASE ${error.code} ${error.message}`);
                 });
@@ -69,24 +73,27 @@ const LoginSection = () => {
                 <Row>
                     <Col lg="6" className="image__section">
                         <div className="login__image">
-                            <img src={imgSrc} alt="Image de connexion" className="w-100" />
+                            <img src={imgSrc} alt="Image de connexion" className="w-100"/>
                         </div>
                     </Col>
                     <Col lg="6" className="form__section d-flex align-items-center">
                         <div className="login__form">
                             <h2>Bienvenue!</h2>
-                            <Form onSubmit={(ev)=>handleLogin(ev )}>
+                            <Form onSubmit={(ev) => handleLogin(ev)}>
                                 {/*<div className="mb-3">*/}
                                 {/*    <label htmlFor="pseudo" className="form-label">Pseudonyme</label>*/}
                                 {/*    <input type="text" className="form-control" id="pseudo" />*/}
                                 {/*</div>*/}
+                                <span className={"login-error"}>{apiError}</span>
                                 <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Adresse Mail</label>
-                                    <input onChange={(ev)=>setEmail(ev.target.value)} type="email" className="form-control" id="email" />
+                                    <input onChange={(ev) => setEmail(ev.target.value)} type="email"
+                                           className="form-control" id="email"/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="password" className="form-label">Mot de passe</label>
-                                    <input  onChange={(ev)=>setPassword(ev.target.value)}  type="password" className="form-control" id="password" />
+                                    <input onChange={(ev) => setPassword(ev.target.value)} type="password"
+                                           className="form-control" id="password"/>
                                 </div>
                                 <Button
                                     color={"warning"}

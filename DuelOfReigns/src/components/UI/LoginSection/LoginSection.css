@@ -56,11 +56,14 @@
 }
 
 .btn__account {
-    border: none;
     outline: none;
     padding: 7px 25px;
     border-radius: 50px;
     border: 1px solid #000000;
     font-size: 0.9rem;
     background: transparent;
+}
+
+.login-error {
+    color: red;
 }
