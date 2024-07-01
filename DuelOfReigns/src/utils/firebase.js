@@ -13,7 +13,7 @@ const firebaseConfig = {
 
 // Initialiser Firebase
 const app = initializeApp(firebaseConfig);
-
+console.log(app)
 /**
  * Returns the Firebase instance asynchronously.
  *
