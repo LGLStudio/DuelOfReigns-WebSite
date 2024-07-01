@@ -10,10 +10,10 @@ const firebaseConfig = {
     messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
     appId: import.meta.env.VITE_FIREBASE_APP_ID || process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
-
+console.log(firebaseConfig)
 // Initialiser Firebase
 const app = initializeApp(firebaseConfig);
-console.log(app)
+
 /**
  * Returns the Firebase instance asynchronously.
  *
