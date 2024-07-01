@@ -10,7 +10,14 @@ import imgSrc from '../../../assets/images/boardgame-back.jpg'
 import {useTranslation} from "react-i18next";
 
 const RegisterSection = () => {
-    const [email, setEmail] = useState(""), [confirmEmail, setConfirmEmail] = useState(""), [password, setPassword] = useState(""), [confirmPassword, setConfirmPassword] = useState(""), [pseudo, setPseudo] = useState(""), [message, setMessage] = useState(""), [registered, setRegistered] = useState(false), {t} = useTranslation(),
+    const [email, setEmail] = useState(""),
+        [confirmEmail, setConfirmEmail] = useState(""),
+        [password, setPassword] = useState(""),
+        [confirmPassword, setConfirmPassword] = useState(""),
+        [pseudo, setPseudo] = useState(""),
+        [message, setMessage] = useState(""),
+        [registered, setRegistered] = useState(false),
+        {t} = useTranslation(),
         emailRegex = /^\S+@\S+\.\S+$/, passwordsMatch = password === confirmPassword,
         isValidEmail = (email) => emailRegex.test(email), auth = getAuth();
 
