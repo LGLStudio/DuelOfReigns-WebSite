@@ -59,7 +59,7 @@ const Header = () => {
                         </li>
                         {auth.user && <li className="nav__item">
                             <NavLink to="/profile"
-                                     className={navClass => navClass.isActive ? 'active' : ''}>Profile</NavLink>
+                                     className={navClass => navClass.isActive ? 'active' : ''}>Profil</NavLink>
                         </li>
                         }
 
