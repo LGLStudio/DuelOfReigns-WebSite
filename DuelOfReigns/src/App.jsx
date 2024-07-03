@@ -36,6 +36,8 @@ function App() {
                     <Route path="/register" element={<RegisterPage/>}/>
                     <Route path="/contact" element={<ContactPage/>}/>
                     <Route path="/privacy-and-terms" element={<PrivacyAndTerms/>}/>
+                    <Route path="/success" element={<p>Succès !</p>}/>
+                    <Route path="/cancel" element={<p>cancel !</p>}/>
                     <Route
                         path="/profile"
                         element={
