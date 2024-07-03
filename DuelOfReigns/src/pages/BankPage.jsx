@@ -57,9 +57,8 @@ const CheckoutForm = () => {
 const BankPage = () => {
     const auth = useAuth();
     const currentUser = auth.user;
-    const stripeKey = import.meta.env.STRIPE_PUBLISHABLE_KEY
+    const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
     console.log(stripeKey)
-    console.log(import.meta.env.TEST)
     return (
         <>
             <Container fluid>
