@@ -14,6 +14,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import PrivacyAndTerms from "./pages/PrivacyAndTerms.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import BankPage from "./pages/BankPage.jsx";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                     {/*<Route path="/profile" element={<ProfilePage/>}/>*/}
                     <Route path="/library/:id" element={<CardDetailsPage/>}/>
                     <Route path="/tutorial" element={<TutorialPage/>}/>
+                    <Route path="/bank" element={<BankPage/>}/>
                     <Route path="/market" element={<MarketPage/>}/>
                     <Route path="/market/:id" element={<MarketDetailsPage/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
