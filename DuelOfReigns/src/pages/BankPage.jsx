@@ -1,87 +1,89 @@
-import React from 'react';
-import {useAuth} from "../AuthProvider.jsx";
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import {Button, Col, Container, Row, Spinner} from "reactstrap";
-import {loadStripe} from '@stripe/stripe-js';
-import {Elements, useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
-import BuyButtonComponent from "../components/BuyButton/BuyButtonComponent.jsx";
+import {useAuth} from "../AuthProvider.jsx";
 
-const stripePromise = loadStripe(import.meta.env.STRIPE_KEY);
+const BuyButtonComponent = ({publishableKey}) => {
+    const [loading, setLoading] = useState(false);
+    const [stripe, setStripe] = useState(null);
 
-const CheckoutForm = () => {
-    const stripe = useStripe();
-    const elements = useElements();
+    useEffect(() => {
+        if (window.Stripe) {
+            setStripe(window.Stripe(publishableKey));
+        } else {
+            console.error('Stripe.js not loaded');
+        }
+    }, [publishableKey]);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleClick = async () => {
+        if (!stripe) {
+            console.error('Stripe.js not initialized');
+            return;
+        }
 
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: 'card',
-            card: elements.getElement(CardElement),
-        });
+        setLoading(true);
 
-        if (!error) {
-            const {id} = paymentMethod;
-            const response = await fetch(import.meta.env.STRIPE_SESSION, {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_STRIPE_SESSION}`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    id
-                })
-            });
-            const session = await response.json();
-
-            const {error: stripeError} = await stripe.redirectToCheckout({
-                sessionId: session.id,
+                body: JSON.stringify({id: 'some_payment_method_id'}),
             });
 
-            if (stripeError) {
-                console.error(stripeError);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        } else {
-            console.error(error);
+
+            const data = await response.json();
+            const {id: sessionId} = data;
+
+            console.log('Session ID:', sessionId);
+
+            const result = await stripe.redirectToCheckout({sessionId});
+
+            if (result.error) {
+                console.error('Error redirecting to checkout:', result.error.message);
+                setLoading(false);
+            }
+
+        } catch (error) {
+            console.error('Error creating checkout session:', error);
+            setLoading(false);
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <CardElement/>
-            <Button type="submit" disabled={!stripe}>
-                Acheter des coins
-            </Button>
-        </form>
+        <Button onClick={handleClick} disabled={loading}>
+            {loading ? 'Loading...' : 'Acheter quelqes Ecopoco'}
+        </Button>
     );
 };
 
 const BankPage = () => {
     const auth = useAuth();
     const currentUser = auth.user;
-    const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
-    console.log(stripeKey)
+    const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+
     return (
-        <>
-            <Container fluid>
-                <Row style={{padding: "5rem", height: "100px"}}>
-                    <Col lg="6">
-                        <span style={{color: "black"}}>Solde actuel : {currentUser?.coins}</span>
-                    </Col>
-                    <Col lg="6">
-                        {/*<Elements stripe={stripePromise}>*/}
-                        {/*    <CheckoutForm/>*/}
-                        {/*</Elements>*/}
-                        {stripeKey ?
-                            <BuyButtonComponent/>
-                            :
-                            <div>
-                                <p>Chargement</p>
-                                <Spinner/>
-                            </div>
-                        }
-                    </Col>
-                </Row>
-            </Container>
-        </>
+        <Container fluid>
+            <Row style={{padding: '5rem', height: '100px'}}>
+                <Col lg="6">
+                    <span style={{color: 'black'}}>Solde actuel : {currentUser?.coins}</span>
+                </Col>
+                <Col lg="6">
+                    {stripeKey ? (
+                        <BuyButtonComponent publishableKey={stripeKey}/>
+                    ) : (
+                        <div>
+                            <p>Chargement</p>
+                            <Spinner/>
+                        </div>
+                    )}
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
