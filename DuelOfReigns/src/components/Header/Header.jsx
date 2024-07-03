@@ -57,10 +57,26 @@ const Header = () => {
                             <NavLink to="/contact"
                                      className={navClass => navClass.isActive ? 'active' : ''}>Contact</NavLink>
                         </li>
-                        {auth.user && <li className="nav__item">
-                            <NavLink to="/profile"
-                                     className={navClass => navClass.isActive ? 'active' : ''}>Profil</NavLink>
-                        </li>
+                        {auth.user ?
+                            <>
+                                <li className="nav__item">
+                                    <NavLink
+                                        to="/profile"
+                                        className={navClass => navClass.isActive ? 'active' : ''}
+                                    >
+                                        Profil
+                                    </NavLink>
+                                </li>
+                                <li className="nav__item">
+                                    <NavLink
+                                        to="/bank"
+                                        className={navClass => navClass.isActive ? 'active' : ''}
+                                    >
+                                        Banque
+                                    </NavLink>
+                                </li>
+                            </>
+                            : <></>
                         }
 
                         <li>

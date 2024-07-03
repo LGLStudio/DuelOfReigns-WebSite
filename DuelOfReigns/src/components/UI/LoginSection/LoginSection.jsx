@@ -4,6 +4,7 @@ import './LoginSection.css';
 import {useTranslation} from "react-i18next";
 import React, {useEffect, useState} from "react";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {getFirestore, doc, getDoc} from "firebase/firestore";
 import {getAppInstance} from "../../../utils/firebase.js";
 import {useAuth} from "../../../AuthProvider.jsx";
 import imgSrc from '../../../assets/images/boardgame-back.jpg'
@@ -36,36 +37,82 @@ const LoginSection = () => {
 
     }, [apiError])
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault();
-        if (authInstance) {
-            signInWithEmailAndPassword(authInstance, email, password)
-                .then((userCredential) => {
-                    // Adapt the Firebase user object to match with User type
-                    const user = {
-                        email: userCredential.user.email,
-                        displayName: userCredential.user.displayName,
-                    };
-                    auth?.signin(user, () => {
-                        // Send them back to the page they tried to visit when they were
-                        // redirected to the login page.
-                        navigate(from, {replace: true});
-                    });
-                })
-                .catch((error) => {
-                    if (error.code === "auth/wrong-password") {
-                        setApiError(`${t("login.form.error.wrongPassword")}`);
-                    } else if (error.code === "auth/invalid-email") {
-                        setApiError(`${t("login.form.error.invalidEmail")}`);
-                    } else {
-                        setApiError(`${error.message}`);
-                    }
-                    console.error(`Erreur FIREBASE ${error.code} ${error.message}`);
-                });
-        } else {
+        if (!authInstance) {
             alert("Erreur lors de la récupération de l'instance de Firebase");
+            return;
+        }
+
+        try {
+            const userCredential = await signInWithEmailAndPassword(authInstance, email, password);
+            const user = {
+                email: userCredential.user.email,
+                displayName: userCredential.user.displayName,
+                phoneNumber: userCredential.user.phoneNumber,
+                uid: userCredential.user.uid,
+                stsTokenManager: userCredential.user.stsTokenManager,
+            };
+
+            // Récupération des coins depuis Firestore
+            const db = getFirestore();
+            const userDoc = await getDoc(doc(db, 'users', user.uid));
+            if (userDoc.exists()) {
+                user.coins = userDoc.data().coins;
+            } else {
+                console.error('No such document!');
+                user.coins = 0; // Valeur par défaut si le document n'existe pas
+            }
+
+            auth?.signin(user, () => {
+                navigate(from, {replace: true});
+            });
+
+        } catch (error) {
+            if (error.code === "auth/wrong-password") {
+                setApiError(`${t("login.form.error.wrongPassword")}`);
+            } else if (error.code === "auth/invalid-email") {
+                setApiError(`${t("login.form.error.invalidEmail")}`);
+            } else {
+                setApiError(`${error.message}`);
+            }
+            console.error(`Erreur FIREBASE ${error.code} ${error.message}`);
         }
     };
+
+    // const handleLogin = (event) => {
+    //     event.preventDefault();
+    //     if (authInstance) {
+    //         signInWithEmailAndPassword(authInstance, email, password)
+    //             .then((userCredential) => {
+    //                 // Adapt the Firebase user object to match with User type
+    //                 const user = {
+    //                     email: userCredential.user.email,
+    //                     displayName: userCredential.user.displayName,
+    //                     phoneNumber: userCredential.user.phoneNumber,
+    //                     uid: userCredential.user.uid,
+    //                     stsTokenManager: userCredential.user.stsTokenManager,
+    //                 };
+    //                 auth?.signin(user, () => {
+    //                     // Send them back to the page they tried to visit when they were
+    //                     // redirected to the login page.
+    //                     navigate(from, {replace: true});
+    //                 });
+    //             })
+    //             .catch((error) => {
+    //                 if (error.code === "auth/wrong-password") {
+    //                     setApiError(`${t("login.form.error.wrongPassword")}`);
+    //                 } else if (error.code === "auth/invalid-email") {
+    //                     setApiError(`${t("login.form.error.invalidEmail")}`);
+    //                 } else {
+    //                     setApiError(`${error.message}`);
+    //                 }
+    //                 console.error(`Erreur FIREBASE ${error.code} ${error.message}`);
+    //             });
+    //     } else {
+    //         alert("Erreur lors de la récupération de l'instance de Firebase");
+    //     }
+    // };
 
     return (
         <section className="login__section">
