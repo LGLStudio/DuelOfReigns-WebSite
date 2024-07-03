@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
 import {Button, Col, Container, Row, Spinner} from "reactstrap";
 import {useAuth} from "../AuthProvider.jsx";
 
 const BuyButtonComponent = ({publishableKey}) => {
     const [loading, setLoading] = useState(false);
     const [stripe, setStripe] = useState(null);
+    const stripSession = import.meta.env.VITE_STRIPE_SESSION
 
     useEffect(() => {
         if (window.Stripe) {
@@ -14,6 +14,10 @@ const BuyButtonComponent = ({publishableKey}) => {
             console.error('Stripe.js not loaded');
         }
     }, [publishableKey]);
+
+    useEffect(() => {
+
+    }, [stripSession])
 
     const handleClick = async () => {
         if (!stripe) {
@@ -24,7 +28,7 @@ const BuyButtonComponent = ({publishableKey}) => {
         setLoading(true);
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_STRIPE_SESSION}`, {
+            const response = await fetch(`${stripSession}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
