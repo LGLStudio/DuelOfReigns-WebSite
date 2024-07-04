@@ -123,7 +123,7 @@ const Header = () => {
                             <span>
                                 <i className="ri-account-circle-line"></i>
                             </span>
-                                    login
+                                    Connexion
                                 </Button>
                             </Link>
                             <Link to='/register'>
