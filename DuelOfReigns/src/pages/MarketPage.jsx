@@ -1,7 +1,9 @@
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 import SkinCard from "../components/UI/SkinCard/SkinCard.jsx";
+import {useAuth} from "../AuthProvider.jsx";
 
 const MarketPage = () => {
+    const auth = useAuth();
     const fakeItems = []
     for (let i = 0; i < 10; i++) {
         fakeItems.push(
@@ -21,7 +23,9 @@ const MarketPage = () => {
                 <div>Vendre un item</div>
             </div>
             <div>
-                Mes ecopocos :
+                {auth?.user ?
+                    <>Mes ecopocos : {auth.user.coins} </>
+                    : <></>}
             </div>
             Les différents cosmétiques en ventes :
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
