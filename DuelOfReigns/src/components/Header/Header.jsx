@@ -112,7 +112,7 @@ const Header = () => {
                             <span>
                                 <i className="ri-account-circle-line"></i>
                             </span>
-                            logout
+                            Déconnexion
                         </Button>
                     ) : (
                         <>
