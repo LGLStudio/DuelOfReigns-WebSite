@@ -29,12 +29,15 @@ const BuyButtonComponent = ({publishableKey}) => {
         setLoading(true);
 
         try {
+            console.log('UID:', uid);
+            const requestBody = {uid: uid, id: 'some_payment_method_id'};
+            console.log('Request Body:', requestBody);
             const response = await fetch(`${stripSession}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({uid: uid, id: 'some_payment_method_id'}),
+                body: JSON.stringify(requestBody),
             });
 
             if (!response.ok) {
