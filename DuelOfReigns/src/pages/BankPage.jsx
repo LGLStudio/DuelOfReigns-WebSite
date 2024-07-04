@@ -29,9 +29,7 @@ const BuyButtonComponent = ({publishableKey}) => {
         setLoading(true);
 
         try {
-            console.log('UID:', uid);
             const requestBody = {uid: uid, id: 'some_payment_method_id'};
-            console.log('Request Body:', requestBody);
             const response = await fetch(`${stripSession}`, {
                 method: 'POST',
                 headers: {
@@ -47,17 +45,13 @@ const BuyButtonComponent = ({publishableKey}) => {
             const data = await response.json();
             const {id: sessionId} = data;
 
-            console.log('Session ID:', sessionId);
-
             const result = await stripe.redirectToCheckout({sessionId});
 
             if (result.error) {
-                console.error('Error redirecting to checkout:', result.error.message);
                 setLoading(false);
             }
 
         } catch (error) {
-            console.error('Error creating checkout session:', error);
             setLoading(false);
         }
     };
