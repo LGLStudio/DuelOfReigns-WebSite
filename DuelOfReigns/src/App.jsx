@@ -26,10 +26,13 @@ function App() {
                     <Route path="/" element={<Navigate to='/home'/>}/>
                     <Route path="/home" element={<HomePage/>}/>
                     <Route path="/library" element={<LibraryPage/>}/>
-                    {/*<Route path="/profile" element={<ProfilePage/>}/>*/}
                     <Route path="/library/:id" element={<CardDetailsPage/>}/>
                     <Route path="/tutorial" element={<TutorialPage/>}/>
-                    <Route path="/bank" element={<BankPage/>}/>
+                    <Route path="/bank" element={
+                        <RequireAuth>
+                            <BankPage/>
+                        </RequireAuth>
+                    }/>
                     <Route path="/market" element={<MarketPage/>}/>
                     <Route path="/market/:id" element={<MarketDetailsPage/>}/>
                     <Route path="/login" element={<LoginPage/>}/>

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Row, Spinner} from "reactstrap";
 import {useAuth} from "../AuthProvider.jsx";
+import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 
 const BuyButtonComponent = ({publishableKey}) => {
     const [loading, setLoading] = useState(false);
@@ -29,9 +30,7 @@ const BuyButtonComponent = ({publishableKey}) => {
         setLoading(true);
 
         try {
-            console.log('UID:', uid);
             const requestBody = {uid: uid, id: 'some_payment_method_id'};
-            console.log('Request Body:', requestBody);
             const response = await fetch(`${stripSession}`, {
                 method: 'POST',
                 headers: {
@@ -47,17 +46,13 @@ const BuyButtonComponent = ({publishableKey}) => {
             const data = await response.json();
             const {id: sessionId} = data;
 
-            console.log('Session ID:', sessionId);
-
             const result = await stripe.redirectToCheckout({sessionId});
 
             if (result.error) {
-                console.error('Error redirecting to checkout:', result.error.message);
                 setLoading(false);
             }
 
         } catch (error) {
-            console.error('Error creating checkout session:', error);
             setLoading(false);
         }
     };
@@ -76,6 +71,7 @@ const BankPage = () => {
 
     return (
         <Container fluid>
+            <BlockHeader/>
             <Row style={{padding: '5rem', height: '100px'}}>
                 <Col lg="6">
                     <span style={{color: 'black'}}>Solde actuel : {currentUser?.coins}</span>
