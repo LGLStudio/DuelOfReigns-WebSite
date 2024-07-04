@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Row, Spinner} from "reactstrap";
 import {useAuth} from "../AuthProvider.jsx";
+import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 
 const BuyButtonComponent = ({publishableKey}) => {
     const [loading, setLoading] = useState(false);
@@ -70,6 +71,7 @@ const BankPage = () => {
 
     return (
         <Container fluid>
+            <BlockHeader/>
             <Row style={{padding: '5rem', height: '100px'}}>
                 <Col lg="6">
                     <span style={{color: 'black'}}>Solde actuel : {currentUser?.coins}</span>
