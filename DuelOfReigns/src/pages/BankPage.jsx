@@ -6,6 +6,8 @@ const BuyButtonComponent = ({publishableKey}) => {
     const [loading, setLoading] = useState(false);
     const [stripe, setStripe] = useState(null);
     const stripSession = import.meta.env.VITE_STRIPE_SESSION
+    const auth = useAuth();
+    const uid = auth.user.uid
 
     useEffect(() => {
         if (window.Stripe) {
@@ -24,7 +26,6 @@ const BuyButtonComponent = ({publishableKey}) => {
             console.error('Stripe.js not initialized');
             return;
         }
-
         setLoading(true);
 
         try {
@@ -33,7 +34,7 @@ const BuyButtonComponent = ({publishableKey}) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({id: 'some_payment_method_id'}),
+                body: JSON.stringify({uid: uid, id: 'some_payment_method_id'}),
             });
 
             if (!response.ok) {
