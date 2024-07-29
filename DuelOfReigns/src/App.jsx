@@ -15,6 +15,8 @@ import ContactPage from "./pages/ContactPage.jsx";
 import PrivacyAndTerms from "./pages/PrivacyAndTerms.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import BankPage from "./pages/BankPage.jsx";
+import TODO from "./TODO.jsx";
+import SellPage from "./pages/SellPage.jsx";
 
 
 function App() {
@@ -33,6 +35,11 @@ function App() {
                             <BankPage/>
                         </RequireAuth>
                     }/>
+                    <Route path="/sell" element={
+                        <RequireAuth>
+                            <SellPage/>
+                        </RequireAuth>
+                    }/>
                     <Route path="/market" element={<MarketPage/>}/>
                     <Route path="/market/:id" element={<MarketDetailsPage/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
@@ -41,6 +48,7 @@ function App() {
                     <Route path="/privacy-and-terms" element={<PrivacyAndTerms/>}/>
                     <Route path="/success" element={<p>Succès !</p>}/>
                     <Route path="/cancel" element={<p>cancel !</p>}/>
+                    <Route path="/todo" element={<TODO/>}/>
                     <Route
                         path="/profile"
                         element={

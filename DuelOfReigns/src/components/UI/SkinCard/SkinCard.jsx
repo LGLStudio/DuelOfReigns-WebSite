@@ -1,21 +1,23 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
 import skinPlaceholder from '../../../assets/images/boardgame-back.jpg';
 import avatarPlaceholder from '../../../assets/images/hero-img.jpg';
-
+import ecopocoTail from "../../../assets/images/ecopoco_pile-removebg.png"
 import './SkinCard.css';
 import {Button} from "reactstrap";
 
 const SkinCard = ({item}) => {
+    const price = item.price_without_commission + (item.price_without_commission * item.fee / 100)
+
     return <div className="single__skin__card">
         <div className="skin__img">
-            <img src={skinPlaceholder} className="w-100"/>
+            {/*<img src={skinPlaceholder} className="w-100" alt={"skin img"}/>*/}
+            <img src={item.skin.image} className="w-100" alt={"skin img"}/>
         </div>
         <div className="skin__content">
             <h5 className="skin__title">
                 <Link to='/marketplace/:userName/:skinId'>
-                    {item.name}
+                    {item.skin.name}
                 </Link>
             </h5>
 
@@ -25,14 +27,14 @@ const SkinCard = ({item}) => {
                 {/*</div>*/}
 
                 <div className="skin__creator__info w-100 d-flex align-items-center justify-content-between">
-                    {/*<div>*/}
-                    {/*    <h6>Vendeur</h6>*/}
-                    {/*    <p>John Doe</p>*/}
-                    {/*</div>*/}
+                    <div>
+                        <h6>Vendeur</h6>
+                        <p>{item.user_seller.name}</p>
+                    </div>
 
                     <div>
-                        <div>Prix {item.price}€</div>
-                        <p>En vente depuis {item.date}</p>
+                        <div>Prix {price}<img width={20} src={ecopocoTail} alt={"ecopoco-icon"}/></div>
+                        {/*<p>En vente depuis {item.date_on_sale}</p>*/}
                     </div>
                 </div>
             </div>
