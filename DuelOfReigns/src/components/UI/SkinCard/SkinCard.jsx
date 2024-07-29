@@ -17,7 +17,7 @@ const SkinCard = ({item}) => {
         <div className="skin__content">
             <h5 className="skin__title">
                 <Link to='/marketplace/:userName/:skinId'>
-                    {item.skin.name}
+                    {item?.skin?.name}
                 </Link>
             </h5>
 
@@ -29,7 +29,7 @@ const SkinCard = ({item}) => {
                 <div className="skin__creator__info w-100 d-flex align-items-center justify-content-between">
                     <div>
                         <h6>Vendeur</h6>
-                        <p>{item.user_seller.name}</p>
+                        <p>{item?.user_seller?.name}</p>
                     </div>
 
                     <div>
