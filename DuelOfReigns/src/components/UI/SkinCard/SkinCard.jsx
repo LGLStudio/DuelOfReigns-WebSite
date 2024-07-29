@@ -12,7 +12,7 @@ const SkinCard = ({item}) => {
     return <div className="single__skin__card">
         <div className="skin__img">
             {/*<img src={skinPlaceholder} className="w-100" alt={"skin img"}/>*/}
-            <img src={item.skin.image} className="w-100" alt={"skin img"}/>
+            <img src={item?.skin?.image} className="w-100" alt={"skin img"}/>
         </div>
         <div className="skin__content">
             <h5 className="skin__title">
