@@ -60,6 +60,10 @@ const Header = () => {
                         {auth.user ?
                             <>
                                 <li className="nav__item">
+                                    <NavLink to="/inventory"
+                                             className={navClass => navClass.isActive ? 'active' : ''}>Inventaire</NavLink>
+                                </li>
+                                <li className="nav__item">
                                     <NavLink
                                         to="/profile"
                                         className={navClass => navClass.isActive ? 'active' : ''}
@@ -78,7 +82,6 @@ const Header = () => {
                             </>
                             : <></>
                         }
-
                         <li>
                             <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={"down"}>
                                 <DropdownToggle
