@@ -18,6 +18,7 @@ const Skin = ({item}) => {
     const priceInputId = "input-price"
     const toggle = () => setTooltipOpen(!tooltipOpen);
     const toggleModal = () => setModal(!modal);
+
     const convertRarityIntoImage = (rarity) => {
         switch (rarity) {
             case 0:
@@ -62,14 +63,13 @@ const Skin = ({item}) => {
                 <div className="skin__content">
                     <div className="skin__creator__info-wrapper d-flex gap-3">
                         <div className="skin__creator__info w-100 d-flex align-items-center justify-content-between">
-
                             <h5 className="skin__title">
                                 {item?.name}
                             </h5>
-                            <img id="rarity-icon" width={50} src={rarityInfo.img} alt="logo rarity"/>
+                            <img id={`rarity-icon-${item.id}`} width={50} src={rarityInfo.img} alt="logo rarity"/>
                             <Tooltip
                                 isOpen={tooltipOpen}
-                                target="rarity-icon"
+                                target={`rarity-icon-${item.id}`}
                                 toggle={toggle}
                             >
                                 {rarityInfo.text}
@@ -137,7 +137,7 @@ const Skin = ({item}) => {
                                 type={"checkbox"}
                                 onChange={(ev) => setDisabled(!ev.target.checked)}
                                 style={{marginRight: "0.25rem"}}
-                                value={(ev) => setCheckboxValue(ev.target.checked)}
+                                // value={(ev) => setCheckboxValue(ev.target.checked)}
                             />
                             <span>
                                 J'accepte les termes de l'Accord de souscription LGL STUDIO (dernière mise à jour le 01

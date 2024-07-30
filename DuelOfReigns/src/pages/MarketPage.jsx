@@ -66,7 +66,8 @@ const MarketPage = () => {
             </div>
             <div>
                 {auth?.user ?
-                    <div>Mes ecopocos : {auth.user.coins} <img width={20} src={ecopocoTail} alt={"ecopoco-icon"}/></div>
+                    <div> Mes ecopocos : {auth.user.coins || 0} <img width={20} src={ecopocoTail} alt={"ecopoco-icon"}/>
+                    </div>
                     : <></>}
             </div>
             Les différents cosmétiques en ventes :
