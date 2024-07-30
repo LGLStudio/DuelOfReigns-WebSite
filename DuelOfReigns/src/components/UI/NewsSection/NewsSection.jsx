@@ -30,7 +30,6 @@ const NewsSection = () => {
         }
     }, [])
 
-console.log(newsData)
     return (<section className="news__section">
         <Container>
             <Row>
