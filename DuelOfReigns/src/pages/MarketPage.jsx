@@ -64,13 +64,25 @@ const MarketPage = () => {
                     </Button>
                     : "Veuillez vous connecter pour vendre un item."}
             </div>
-            <div>
+            <div style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                flexDirection: "column",
+                alignItems: "center"
+            }}>
                 {auth?.user ?
-                    <div> Mes ecopocos : {auth.user.coins || 0} <img width={20} src={ecopocoTail} alt={"ecopoco-icon"}/>
+                    <div>
+                        Mes ecopocos : {auth.user.coins || 0} <img width={20} src={ecopocoTail} alt={"ecopoco-icon"}/>
                     </div>
-                    : <></>}
+                    :
+                    <></>}
+                <div>
+                    Les différents cosmétiques en ventes :
+                </div>
             </div>
-            Les différents cosmétiques en ventes :
+            <div>
+
+            </div>
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
                 {skins ?
                     <>
