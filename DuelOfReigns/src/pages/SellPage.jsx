@@ -1,33 +1,13 @@
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
-import SkinCard from "../components/UI/SkinCard/SkinCard.jsx";
 import {useAuth} from "../AuthProvider.jsx";
-import {Button} from "reactstrap";
 import {useNavigate} from "react-router-dom";
-import {doc, getDoc, getFirestore} from "firebase/firestore";
 import {useEffect} from "react";
+import Skin from "../components/Skin/Skin.jsx";
+import SkinSell from "../components/SkinSell/SkinSell.jsx";
 
 const SellPage = () => {
     const auth = useAuth();
-    const fakeItems = []
-    const navigate = useNavigate();
-    console.log(auth.user)
-
-
-    const getSkins = async () => {
-        // Récupération des skins depuis Firestore
-        const db = getFirestore();
-        const skinDoc = await getDoc(doc(db, 'skins', auth.user.uid));
-        if (skinDoc.exists()) {
-           console.log("OK !")
-        } else {
-            console.log("pas ok")
-        }
-    }
-
-    useEffect(() => {
-
-    }, [])
-
+    const skins = auth.user.skins
 
     return (
         <>
@@ -40,7 +20,16 @@ const SellPage = () => {
                 <input placeholder={"Tapez les premières lettres du nom d'un item pour filtrer la liste"}/>
             </div>
             <div>
-
+                {skins.map(skin => (
+                    <div style={{
+                        width: "200px",
+                        margin: "1rem"
+                    }}
+                         key={Math.random()}
+                    >
+                        <Skin item={skin}/>
+                    </div>
+                ))}
             </div>
         </>
     )

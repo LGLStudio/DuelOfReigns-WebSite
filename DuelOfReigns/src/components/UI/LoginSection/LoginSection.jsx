@@ -57,8 +57,22 @@ const LoginSection = () => {
             // Récupération des coins depuis Firestore
             const db = getFirestore();
             const userDoc = await getDoc(doc(db, 'users', user.uid));
+
             if (userDoc.exists()) {
+                const userData = userDoc.data();
                 user.coins = userDoc.data().coins;
+
+                // Récupérer les skins
+                if (userData.skins && userData.skins.length > 0) {
+                    const skinPromises = userData.skins.map(async (skinRef) => {
+                        const skinDoc = await getDoc(skinRef);
+                        return {id: skinDoc.id, ...skinDoc.data()};
+                    });
+                    user.skins = await Promise.all(skinPromises);
+                } else {
+                    user.skins = [];
+                }
+
             } else {
                 console.error('No such document!');
                 user.coins = 0; // Valeur par défaut si le document n'existe pas
