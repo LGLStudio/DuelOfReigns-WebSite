@@ -21,7 +21,18 @@ const TODO = () => {
         - Edite le skin dont Skin.id === Skin_Sale.Skin
         - change le Owner
 
+
+        // envoie de l'uid du user + le sell_skin_id a un endpoint du backend
+        // backend demande à firestore les coins de user et recup de sell_skin
+        //      déduction du propiétaire de sell_skin
+        // backend transfert les coins
+        // backend transfert skin
+        // backend modifie le sell_skin
+
+
+
         /!\ ! COMPRESSER LES IMAGES ! /!\
+        /!\ ! BUG A L'INSCRIPTION l'utilisateur ne peut pas créer dans la table user ! /!\
     </>)
 }
 
