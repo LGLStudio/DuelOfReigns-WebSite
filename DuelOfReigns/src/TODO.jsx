@@ -4,8 +4,7 @@ const TODO = () => {
         - vérifier qu'on écrit bien toutes les données nécessaire en base de données
 
         2) Lucas mets en vente un skin sur le market place
-        a) connecter Lucas sur le site
-        b) récupérer tous les skins de Lucas
+        b) récupérer tous les skins_sales de Lucas
         - lister tous les skin_sales pour séparer les skins en ventes des skins pas en ventes
         c) mettre en vente un skin
         - créer une entrée sale_skin avec les infos nécessaires
@@ -21,6 +20,8 @@ const TODO = () => {
         - Ajoute l'entrée Date_Transaction
         - Edite le skin dont Skin.id === Skin_Sale.Skin
         - change le Owner
+
+        /!\ ! COMPRESSER LES IMAGES ! /!\
     </>)
 }
 
