@@ -28,13 +28,14 @@ const TrendingSkinSection = () => {
                         </Link>
                     </div>
                 </Col>
-                {fakeItems.length > 0 ?
-                    fakeItems.map(item => (
-                        <Col lg='3' md='4' sm='6' className="mb-4">
-                            <SkinSell item={item}/>
-                        </Col>
-                    ))
-                    : <p>Pas d'article en vente.</p>}
+                {/* TODO */}
+                {/*{fakeItems.length > 0 ?*/}
+                {/*    fakeItems.map(item => (*/}
+                {/*        <Col lg='3' md='4' sm='6' className="mb-4">*/}
+                {/*            <SkinSell item={item}/>*/}
+                {/*        </Col>*/}
+                {/*    ))*/}
+                {/*    : <p>Pas d'article en vente.</p>}*/}
             </Row>
         </Container>
     </section>

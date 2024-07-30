@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {Button, Tooltip} from "reactstrap";
 import StoneImg from "../../assets/images/stone.png"
 import CopperImg from "../../assets/images/copper.png"
@@ -49,6 +49,13 @@ const Skin = ({item}) => {
                     </Tooltip>
                 </div>
             </div>
+            <Button
+                size="small"
+                color="primary"
+                className="d-flex align-items-center gap-2"
+            >
+                Vendre
+            </Button>
         </div>
     </div>
 };
