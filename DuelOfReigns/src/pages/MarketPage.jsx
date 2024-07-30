@@ -1,5 +1,5 @@
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
-import SkinCard from "../components/UI/SkinCard/SkinCard.jsx";
+import SkinSell from "../components/SkinSell/SkinSell.jsx";
 import {useAuth} from "../AuthProvider.jsx";
 import {Button, Spinner} from "reactstrap";
 import {useNavigate} from "react-router-dom";
@@ -10,7 +10,6 @@ import {useEffect, useState} from "react";
 
 const MarketPage = () => {
     const auth = useAuth();
-    const fakeItems = []
     const navigate = useNavigate();
     const user = auth.user
     const [skins, setSkins] = useState([]);
@@ -54,11 +53,16 @@ const MarketPage = () => {
             <BlockHeader/>
             <div style={{display: "flex", justifyContent: "space-evenly"}}>
                 <div>MarketPlace</div>
-                <Button
-                    onClick={() => navigate("/sell")}
-                >
-                    Vendre un item
-                </Button>
+                {user ?
+                    <Button
+                        onClick={() => navigate("/sell")}
+                        disabled={!user}
+                        primary={true}
+                        color="primary"
+                    >
+                        Vendre un item
+                    </Button>
+                    : "Veuillez vous connecter pour vendre un item."}
             </div>
             <div>
                 {auth?.user ?
@@ -76,7 +80,7 @@ const MarketPage = () => {
                             }}
                                  key={Math.random()}
                             >
-                                <SkinCard item={item}/>
+                                <SkinSell item={item}/>
                             </div>
                         ))}
                     </>

@@ -1,0 +1,5 @@
+const Ecopoco = () => {
+
+}
+
+export { Ecopoco }

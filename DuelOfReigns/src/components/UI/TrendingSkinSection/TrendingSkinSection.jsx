@@ -2,8 +2,7 @@ import React from "react";
 import {Container, Row, Col} from "reactstrap";
 import {Link} from "react-router-dom";
 
-import SkinCard from "../SkinCard/SkinCard";
-import imgURL from '../../../assets/images/boardgame-back.jpg';
+import SkinSell from "../../SkinSell/SkinSell.jsx"
 import './TrendingSkinSection.css';
 
 const TrendingSkinSection = () => {
@@ -29,13 +28,14 @@ const TrendingSkinSection = () => {
                         </Link>
                     </div>
                 </Col>
-                {fakeItems.length > 0 ?
-                    fakeItems.map(item => (
-                        <Col lg='3' md='4' sm='6' className="mb-4">
-                            <SkinCard item={item}/>
-                        </Col>
-                    ))
-                    : <p>Pas d'article en vente.</p>}
+                {/* TODO */}
+                {/*{fakeItems.length > 0 ?*/}
+                {/*    fakeItems.map(item => (*/}
+                {/*        <Col lg='3' md='4' sm='6' className="mb-4">*/}
+                {/*            <SkinSell item={item}/>*/}
+                {/*        </Col>*/}
+                {/*    ))*/}
+                {/*    : <p>Pas d'article en vente.</p>}*/}
             </Row>
         </Container>
     </section>

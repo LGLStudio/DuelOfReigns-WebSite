@@ -2,7 +2,7 @@ import {Container, Row, Col, Form, Button} from 'reactstrap';
 import {useLocation, useNavigate} from "react-router-dom";
 import './LoginSection.css';
 import {useTranslation} from "react-i18next";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {getFirestore, doc, getDoc} from "firebase/firestore";
 import {getAppInstance} from "../../../utils/firebase.js";
@@ -57,8 +57,22 @@ const LoginSection = () => {
             // Récupération des coins depuis Firestore
             const db = getFirestore();
             const userDoc = await getDoc(doc(db, 'users', user.uid));
+
             if (userDoc.exists()) {
+                const userData = userDoc.data();
                 user.coins = userDoc.data().coins;
+
+                // Récupérer les skins
+                if (userData.skins && userData.skins.length > 0) {
+                    const skinPromises = userData.skins.map(async (skinRef) => {
+                        const skinDoc = await getDoc(skinRef);
+                        const id = skinRef.id
+                        return {...skinDoc.data(), id};
+                    });
+                    user.skins = await Promise.all(skinPromises);
+                } else {
+                    user.skins = [];
+                }
             } else {
                 console.error('No such document!');
                 user.coins = 0; // Valeur par défaut si le document n'existe pas
