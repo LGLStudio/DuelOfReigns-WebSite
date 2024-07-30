@@ -154,7 +154,8 @@ const Skin = ({item}) => {
                 <ModalFooter>
                     <Button
                         color="primary"
-                        onClick={toggleModal}
+                        onClick={() => alert("En cours d'implémentation.")}
+                        // onClick={toggleModal}
                         disabled={disabled}
                     >
                         Oui, mettre cet article en vente
