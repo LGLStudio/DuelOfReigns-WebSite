@@ -54,7 +54,7 @@ const LoginSection = () => {
                 stsTokenManager: userCredential.user.stsTokenManager,
             };
 
-            // Récupération des coins depuis Firestore
+            // Récupération des coins et skins depuis Firestore
             const db = getFirestore();
             const userDoc = await getDoc(doc(db, 'users', user.uid));
 
