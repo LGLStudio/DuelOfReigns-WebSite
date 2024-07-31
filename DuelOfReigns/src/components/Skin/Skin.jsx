@@ -102,7 +102,9 @@ const Skin = ({item}) => {
             setAlertText(data.error)
         } else {
             setButtonIsLoading(false);
-
+            setAlertIsOpen(true)
+            setAlertColor("light")
+            setAlertText("Le skin est mis en vente !")
         }
         toggleModal()
     }

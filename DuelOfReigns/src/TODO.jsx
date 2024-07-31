@@ -1,5 +1,25 @@
 const TODO = () => {
     return (<>
+
+
+
+
+        LE PROBLEME DU MARKETPLACE QUI NARRIVE PAS A RECUP LES SKINS
+
+        VIENT DU FAIT DES MAJUSCULES DANS LES CLEFS
+
+
+
+
+
+
+
+
+
+
+
+
+
         2) Lucas mets en vente un skin sur le market place
         b) récupérer tous les skins de Lucas
         - Afficher une liste avec les skins_sales deja en vente
