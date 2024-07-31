@@ -4,7 +4,7 @@ import './LoginSection.css';
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {getFirestore, doc, getDoc} from "firebase/firestore";
+import {getFirestore, doc, getDoc, DocumentReference} from "firebase/firestore";
 import {getAppInstance} from "../../../utils/firebase.js";
 import {useAuth} from "../../../AuthProvider.jsx";
 import imgSrc from '../../../assets/images/boardgame-back.jpg'
@@ -60,16 +60,39 @@ const LoginSection = () => {
 
             if (userDoc.exists()) {
                 const userData = userDoc.data();
-                user.coins = userDoc.data().coins;
+                user.coins = userData.coins;
 
                 // Récupérer les skins
                 if (userData.skins && userData.skins.length > 0) {
                     const skinPromises = userData.skins.map(async (skinRef) => {
-                        const skinDoc = await getDoc(skinRef);
-                        const id = skinRef.id
-                        return {...skinDoc.data(), id};
+                        // Vérifier que skinRef est bien une référence de document
+                        if (skinRef instanceof DocumentReference) {
+                            const skinPropertyDoc = await getDoc(skinRef);
+                            const skinPropertyId = skinRef.id;
+                            const skinPropertyData = skinPropertyDoc.data();
+
+                            // Récupérer la référence du skin_id à partir de skinPropertyData
+                            if (skinPropertyData && skinPropertyData.skin instanceof DocumentReference) {
+                                const skinDoc = await getDoc(skinPropertyData.skin);
+                                const skinId = skinPropertyData.skin.id;
+                                return {
+                                    skinPropertyId, // ID du skin_property
+                                    skinId, // ID du skin
+                                    ...skinDoc.data()
+                                };
+                            } else {
+                                throw new Error('Invalid skin_id reference');
+                            }
+                        } else {
+                            throw new Error('skinRef is not a DocumentReference');
+                        }
                     });
-                    user.skins = await Promise.all(skinPromises);
+
+                    try {
+                        user.skins = await Promise.all(skinPromises);
+                    } catch (error) {
+                        console.error('Error retrieving skins:', error);
+                    }
                 } else {
                     user.skins = [];
                 }
