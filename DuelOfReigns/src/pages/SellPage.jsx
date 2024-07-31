@@ -18,10 +18,10 @@ const SellPage = () => {
                 <div>
                     Sélectionnez un item dans votre inventaire
                 </div>
-                <div>
-                    Vous recherchez un item particulier ?
-                    <input placeholder={"Tapez les premières lettres du nom d'un item pour filtrer la liste"}/>
-                </div>
+                {/*<div>*/}
+                {/*    Vous recherchez un item particulier ?*/}
+                {/*    <input placeholder={"Tapez les premières lettres du nom d'un item pour filtrer la liste"}/>*/}
+                {/*</div>*/}
             </div>
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
                 {skins.map(skin => (
