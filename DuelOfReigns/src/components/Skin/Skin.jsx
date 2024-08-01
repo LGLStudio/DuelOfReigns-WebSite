@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import ecopocoTail from "../../assets/images/ecopoco_pile-removebg.png";
-import {Button, Tooltip} from "reactstrap";
+import {Tooltip} from "reactstrap";
 import StoneImg from "../../assets/images/stone.png";
 import CopperImg from "../../assets/images/copper.png";
 import SilverImg from "../../assets/images/silver.png";
@@ -9,10 +8,8 @@ import GoldImg from "../../assets/images/gold.png";
 import DiamondImg from "../../assets/images/diamond.png";
 
 const Skin = ({item}) => {
-    const price = item.price_without_commission + (item.price_without_commission * item.fee / 100);
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
-
     const convertRarityIntoImage = (rarity) => {
         switch (rarity) {
             case 0:
@@ -30,14 +27,13 @@ const Skin = ({item}) => {
         }
     };
 
-    const rarityInfo = convertRarityIntoImage(item?.skin?.rarity);
-    const buyBtnId = `buy-btn-${item?.id}`;
+    const rarityInfo = convertRarityIntoImage(item?.rarity);
     const rarityIconId = `rarity-icon-${item?.id}`;
 
     return (
         <div className="single__skin__card">
             <div className="skin__img">
-                <img src={item?.skin?.image} className="w-100" alt="skin img"/>
+                <img src={item?.image} className="w-100" alt="skin img"/>
             </div>
             <div className="skin__content">
                 <div>
@@ -50,8 +46,8 @@ const Skin = ({item}) => {
                 <div className="skin__creator__info-wrapper d-flex gap-3">
                     <div className="skin__creator__info w-100 d-flex align-items-center justify-content-between">
                         <h5 className="skin__title">
-                            <Link to={`/marketplace/${item?.user_seller?.name}/${item?.skin?.id}`}>
-                                {item?.skin?.name}
+                            <Link to={`/marketplace/${item?.user_seller?.name}/${item?.id}`}>
+                                {item?.name}
                             </Link>
                         </h5>
                         <img id={rarityIconId} width={50} src={rarityInfo?.img} alt="logo rarity"/>
