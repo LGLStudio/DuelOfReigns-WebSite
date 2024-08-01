@@ -5,7 +5,7 @@ import {Link, useNavigate} from "react-router-dom";
 import './TrendingSkinSection.css';
 import {collection, getDoc, getDocs, getFirestore} from "firebase/firestore";
 import {useAuth} from "../../../AuthProvider.jsx";
-import SkinSell from "../../SkinSell/SkinSell.jsx";
+import SkinBuy from "../../SkinBuy/SkinBuy.jsx";
 
 const TrendingSkinSection = () => {
     const auth = useAuth();
@@ -62,7 +62,7 @@ const TrendingSkinSection = () => {
                 {skins.length > 0 ?
                     skins.map(skin => (
                         <Col lg='3' md='4' sm='6' className="mb-4">
-                            <SkinSell item={skin}/>
+                            <SkinBuy item={skin}/>
                         </Col>
                     ))
                     : <p>Pas d'article en vente.</p>}

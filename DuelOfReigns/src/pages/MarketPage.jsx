@@ -1,5 +1,5 @@
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
-import SkinSell from "../components/SkinSell/SkinSell.jsx";
+import SkinBuy from "../components/SkinBuy/SkinBuy.jsx";
 import {useAuth} from "../AuthProvider.jsx";
 import {Button, Spinner} from "reactstrap";
 import {useNavigate} from "react-router-dom";
@@ -93,7 +93,7 @@ const MarketPage = () => {
                             }}
                                  key={Math.random()}
                             >
-                                <SkinSell item={item}/>
+                                <SkinBuy item={item}/>
                             </div>
                         ))}
                     </>

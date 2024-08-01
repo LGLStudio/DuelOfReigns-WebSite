@@ -1,29 +1,6 @@
 const TODO = () => {
     return (<>
-
-
-
-
-        LE PROBLEME DU MARKETPLACE QUI NARRIVE PAS A RECUP LES SKINS
-
-        VIENT DU FAIT DES MAJUSCULES DANS LES CLEFS
-
-
-
-
-
-
-
-
-
-
-
-
-
-        2) Lucas mets en vente un skin sur le market place
-        b) récupérer tous les skins de Lucas
-        - Afficher une liste avec les skins_sales deja en vente
-        - Afficher une liste avec les skins possédés mais non en vente
+        2) mettre en prod
 
         3) Louis achète le skin sur le market place
         - Vérification du nombre d'écopoco que Louis possède
@@ -35,6 +12,7 @@ const TODO = () => {
         - Edite le skin dont Skin.id === Skin_Sale.Skin
         - change le Owner
 
+        4) mettre en prod
 
         // envoie de l'uid du user + le sell_skin_id a un endpoint du backend
         // backend demande à firestore les coins de user et recup de sell_skin
@@ -43,10 +21,7 @@ const TODO = () => {
         // backend transfert skin
         // backend modifie le sell_skin
 
-
-
         /!\ ! COMPRESSER LES IMAGES ! /!\
-        /!\ ! BUG A L'INSCRIPTION l'utilisateur ne peut pas créer dans la table user ! /!\
     </>)
 }
 

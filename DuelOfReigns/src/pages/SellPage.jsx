@@ -1,6 +1,6 @@
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 import {useAuth} from "../AuthProvider.jsx";
-import Skin from "../components/Skin/Skin.jsx";
+import SkinSell from "../components/SkinSell/SkinSell.jsx";
 
 const SellPage = () => {
     const auth = useAuth();
@@ -41,21 +41,20 @@ const SellPage = () => {
                         }}
                              key={Math.random()}
                         >
-                            <Skin item={skin}/>
+                            <SkinSell item={skin}/>
                         </div>
                     ))}
                 </div>
-                {skins.map(skin => (
-                    skin.skinIsOnSale ?
-                        <div style={{
-                            width: "200px",
-                            margin: "1rem"
-                        }}
-                             key={Math.random()}
-                        >
-                            <Skin item={skin}/>
-                        </div>
-                        : <></>
+                Skins pas en vente
+                {skinsNotOnSell.map(skin => (
+                    <div style={{
+                        width: "200px",
+                        margin: "1rem"
+                    }}
+                         key={Math.random()}
+                    >
+                        <SkinSell item={skin}/>
+                    </div>
                 ))}
             </div>
         </>
