@@ -5,7 +5,6 @@ import Skin from "../components/Skin/Skin.jsx";
 const SellPage = () => {
     const auth = useAuth();
     const skins = auth.user.skins
-    console.log(skins)
     return (
         <>
             <BlockHeader/>
@@ -54,7 +53,6 @@ const SellPage = () => {
                             : <></>
                     ))}
                 </div>
-
             </div>
         </>
     )
