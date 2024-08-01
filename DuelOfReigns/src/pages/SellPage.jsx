@@ -33,19 +33,6 @@ const SellPage = () => {
             </div>
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
                 <div>
-                    Mes skins disponibles
-                    {skinsNotOnSell.map(skin => (
-                        <div style={{
-                            width: "200px",
-                            margin: "1rem"
-                        }}
-                             key={Math.random()}
-                        >
-                            <Skin item={skin}/>
-                        </div>
-                    ))}
-                </div>
-                <div>
                     Skins déjà en vente
                     {skinsOnSell.map(skin => (
                         <div style={{
@@ -58,6 +45,18 @@ const SellPage = () => {
                         </div>
                     ))}
                 </div>
+                {skins.map(skin => (
+                    skin.skinIsOnSale ?
+                        <div style={{
+                            width: "200px",
+                            margin: "1rem"
+                        }}
+                             key={Math.random()}
+                        >
+                            <Skin item={skin}/>
+                        </div>
+                        : <></>
+                ))}
             </div>
         </>
     )
