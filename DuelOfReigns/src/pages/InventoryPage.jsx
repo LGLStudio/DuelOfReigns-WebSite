@@ -1,18 +1,44 @@
-import {Col, Container, Row} from "reactstrap";
+import {Col, Container} from "reactstrap";
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
+import {useAuth} from "../AuthProvider.jsx";
+import Skin from "../components/Skin/Skin.jsx";
 
 const InventoryPage = () => {
+    const auth = useAuth();
+    const skins = auth.user.skins
+    const skinsOnSell = skins.filter(skin => skin.skinIsOnSale)
+
     return (
         <Container fluid>
             <BlockHeader/>
-            <Row style={{padding: '5rem', height: '100px'}}>
+            <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
                 <Col lg="6">
-                    Mon inventaire
+                    Tous mes skins
+                    {skins.map(skin => (
+                        <div style={{
+                            width: "200px",
+                            margin: "1rem"
+                        }}
+                             key={Math.random()}
+                        >
+                            <Skin item={skin}/>
+                        </div>
+                    ))}
                 </Col>
                 <Col lg="6">
-                    Mes skins
+                    Mes skins en vente
+                    {skinsOnSell.map(skin => (
+                        <div style={{
+                            width: "200px",
+                            margin: "1rem"
+                        }}
+                             key={Math.random()}
+                        >
+                            <Skin item={skin}/>
+                        </div>
+                    ))}
                 </Col>
-            </Row>
+            </div>
         </Container>
     );
 };
