@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import ecopocoTail from "../../assets/images/ecopoco_pile-removebg.png";
+import './skinSell.css';
 import {Button, Tooltip} from "reactstrap";
 import StoneImg from "../../assets/images/stone.png";
 import CopperImg from "../../assets/images/copper.png";
@@ -8,7 +9,7 @@ import SilverImg from "../../assets/images/silver.png";
 import GoldImg from "../../assets/images/gold.png";
 import DiamondImg from "../../assets/images/diamond.png";
 
-const Skin = ({item}) => {
+const SkinBuy = ({item}) => {
     const price = item.price_without_commission + (item.price_without_commission * item.fee / 100);
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
@@ -45,6 +46,18 @@ const Skin = ({item}) => {
                 </div>
 
                 <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                    <Button
+                        id={buyBtnId}
+                        size="small"
+                        color="primary"
+                        className="d-flex align-items-center gap-2"
+                    >
+                        <i className="ri-shopping-bag-line"></i>
+                    </Button>
+                    <div>
+                        Prix {price}
+                        <img width={20} src={ecopocoTail} alt="ecopoco-icon"/>
+                    </div>
                 </div>
 
                 <div className="skin__creator__info-wrapper d-flex gap-3">
@@ -65,4 +78,4 @@ const Skin = ({item}) => {
     );
 };
 
-export default Skin;
+export default SkinBuy;

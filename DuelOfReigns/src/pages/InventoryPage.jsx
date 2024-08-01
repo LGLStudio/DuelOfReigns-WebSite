@@ -1,6 +1,7 @@
 import {Col, Container} from "reactstrap";
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 import {useAuth} from "../AuthProvider.jsx";
+import SkinSell from "../components/SkinSell/SkinSell.jsx";
 import Skin from "../components/Skin/Skin.jsx";
 
 const InventoryPage = () => {
