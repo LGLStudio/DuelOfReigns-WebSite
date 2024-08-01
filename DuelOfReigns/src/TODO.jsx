@@ -1,6 +1,7 @@
 const TODO = () => {
     return (<>
-        2) mettre en prod
+        2) FIXME On mets en vente des skin ! il faut mettre en vente le skin propriété !
+        - puis remettre en prod
 
         3) Louis achète le skin sur le market place
         - Vérification du nombre d'écopoco que Louis possède
