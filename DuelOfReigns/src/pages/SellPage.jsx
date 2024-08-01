@@ -5,7 +5,7 @@ import Skin from "../components/Skin/Skin.jsx";
 const SellPage = () => {
     const auth = useAuth();
     const skins = auth.user.skins
-
+    console.log(skins)
     return (
         <>
             <BlockHeader/>
@@ -24,16 +24,37 @@ const SellPage = () => {
                 {/*</div>*/}
             </div>
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
-                {skins.map(skin => (
-                    <div style={{
-                        width: "200px",
-                        margin: "1rem"
-                    }}
-                         key={Math.random()}
-                    >
-                        <Skin item={skin}/>
-                    </div>
-                ))}
+                <div>
+                    Mes skins
+                    {skins.map(skin => (
+                        skin.skinIsOnSale ? <></> :
+                            <div style={{
+                                width: "200px",
+                                margin: "1rem"
+                            }}
+                                 key={Math.random()}
+                            >
+                                <Skin item={skin}/>
+                            </div>
+
+                    ))}
+                </div>
+                <div>
+                    Skins déjà en vente
+                    {skins.map(skin => (
+                        skin.skinIsOnSale ?
+                            <div style={{
+                                width: "200px",
+                                margin: "1rem"
+                            }}
+                                 key={Math.random()}
+                            >
+                                <Skin item={skin}/>
+                            </div>
+                            : <></>
+                    ))}
+                </div>
+
             </div>
         </>
     )
