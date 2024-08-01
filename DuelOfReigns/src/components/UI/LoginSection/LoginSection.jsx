@@ -70,14 +70,15 @@ const LoginSection = () => {
                             const skinPropertyDoc = await getDoc(skinRef);
                             const skinPropertyId = skinRef.id;
                             const skinPropertyData = skinPropertyDoc.data();
-
                             // Récupérer la référence du skin_id à partir de skinPropertyData
                             if (skinPropertyData && skinPropertyData.skin instanceof DocumentReference) {
                                 const skinDoc = await getDoc(skinPropertyData.skin);
                                 const skinId = skinPropertyData.skin.id;
+                                const skinIsOnSale = skinPropertyData.is_on_sale;
                                 return {
                                     skinPropertyId, // ID du skin_property
                                     skinId, // ID du skin
+                                    skinIsOnSale,
                                     ...skinDoc.data()
                                 };
                             } else {
