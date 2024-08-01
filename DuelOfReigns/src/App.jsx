@@ -17,6 +17,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import BankPage from "./pages/BankPage.jsx";
 import TODO from "./TODO.jsx";
 import SellPage from "./pages/SellPage.jsx";
+import InventoryPage from "./pages/InventoryPage.jsx";
 
 
 function App() {
@@ -30,6 +31,11 @@ function App() {
                     <Route path="/library" element={<LibraryPage/>}/>
                     <Route path="/library/:id" element={<CardDetailsPage/>}/>
                     <Route path="/tutorial" element={<TutorialPage/>}/>
+                    <Route path="/inventory" element={
+                        <RequireAuth>
+                            <InventoryPage/>
+                        </RequireAuth>
+                    }/>
                     <Route path="/bank" element={
                         <RequireAuth>
                             <BankPage/>

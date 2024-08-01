@@ -1,12 +1,23 @@
 import React, {useState} from "react";
-import {Button, Form, Input, Modal, ModalBody, ModalFooter, ModalHeader, Tooltip} from "reactstrap";
+import {Alert, Button, Form, Input, Modal, ModalBody, ModalFooter, ModalHeader, Spinner, Tooltip} from "reactstrap";
 import ecopocoTail from "../../assets/images/ecopoco_pile-removebg.png";
 import StoneImg from "../../assets/images/stone.png"
 import CopperImg from "../../assets/images/copper.png"
 import SilverImg from "../../assets/images/silver.png"
 import GoldImg from "../../assets/images/gold.png"
 import DiamondImg from "../../assets/images/diamond.png"
+import {useAuth} from "../../AuthProvider.jsx";
 
+/**
+ * @param item
+ * @param item.image
+ * @param item.name
+ * @param item.rarity
+ * @param item.skinId
+ * @param item.skinPropertyId
+ * @returns {Element}
+ * @constructor
+ */
 const Skin = ({item}) => {
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const [modal, setModal] = useState(false);
@@ -14,10 +25,17 @@ const Skin = ({item}) => {
     const [inputReceive, setInputReceive] = useState(0);
     const [inputPrice, setInputPrice] = useState(1);
     const [checkboxValue, setCheckboxValue] = useState(false);
+    const [buttonIsLoading, setButtonIsLoading] = useState(false);
     const receiveInputId = "input-receive";
     const priceInputId = "input-price"
     const toggle = () => setTooltipOpen(!tooltipOpen);
     const toggleModal = () => setModal(!modal);
+    const auth = useAuth();
+    const currentUser = auth.user
+    const saleSkinUrl = import.meta.env.VITE_SALE_SKIN_URL
+    const [alertIsOpen, setAlertIsOpen] = useState(false)
+    const [alertColor, setAlertColor] = useState("light")
+    const [alertText, setAlertText] = useState("")
 
     const convertRarityIntoImage = (rarity) => {
         switch (rarity) {
@@ -53,9 +71,52 @@ const Skin = ({item}) => {
 
     }
 
+    const createSellSkin = async () => {
+        setButtonIsLoading(true);
+
+        const skinSales = {
+            skin_property_id: item.skinPropertyId, // ref document skin_properties
+            user_seller: currentUser.uid, // ref document users
+            price_without_commission: inputReceive,
+            fee: 10,
+            date_on_sale: new Date(),
+            // skin_id: item.skinId // ref document skins useless need to verify in backend
+        }
+
+        const response = await fetch(`${saleSkinUrl}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(skinSales),
+        });
+
+        const data = await response.json();
+
+        console.log(data);
+
+        if (data.error) {
+            setButtonIsLoading(false);
+            setAlertIsOpen(true)
+            setAlertColor("danger")
+            setAlertText(data.error)
+        } else {
+            setButtonIsLoading(false);
+            setAlertIsOpen(true)
+            setAlertColor("light")
+            setAlertText("Le skin est mis en vente !")
+        }
+        toggleModal()
+    }
+
 
     return (
         <>
+            <Alert color={alertColor} isOpen={alertIsOpen}
+                   toggle={() => setAlertIsOpen(false)}
+            >
+                {alertText}
+            </Alert>
             <div className="single__skin__card">
                 <div className="skin__img">
                     <img src={item?.image} className="w-100" alt={"skin img"}/>
@@ -152,14 +213,29 @@ const Skin = ({item}) => {
                     </div>
                 </ModalBody>
                 <ModalFooter>
-                    <Button
-                        color="primary"
-                        onClick={() => alert("En cours d'implémentation.")}
-                        // onClick={toggleModal}
-                        disabled={disabled}
-                    >
-                        Oui, mettre cet article en vente
-                    </Button>
+                    {buttonIsLoading ?
+                        <Button
+                            color="primary"
+                            disabled
+                        >
+                            <Spinner size="sm">
+                                Loading...
+                            </Spinner>
+                            <span>
+                                {' '} Enregistrement de la vente ...
+                            </span>
+                        </Button>
+                        :
+                        <Button
+                            color="primary"
+                            // onClick={() => alert("En cours d'implémentation.")}
+                            onClick={createSellSkin}
+                            disabled={disabled}
+                        >
+                            Oui, mettre cet article en vente
+                        </Button>
+                    }
+
                     {' '}
                     <Button color="secondary" onClick={toggleModal}>
                         Non ! je le garde pour moi !

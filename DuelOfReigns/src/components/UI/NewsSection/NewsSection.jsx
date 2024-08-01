@@ -30,7 +30,6 @@ const NewsSection = () => {
         }
     }, [])
 
-
     return (<section className="news__section">
         <Container>
             <Row>
@@ -42,12 +41,12 @@ const NewsSection = () => {
                 {newsData && newsData.map((news, index) => (<Col lg='4' key={index}>
                     <div className="single__news__card">
                         <div className="news__image">
-                            <img src={crownImg} alt="Nouvelle Image" className="w-100"/>
+                            <img src={`${news.image}`} alt="Nouvelle Image" className="w-100"/>
                         </div>
                         <div className="news__info">
-                            <h3 className="news__title">{news.title_fr}</h3>
-                            <p className="news__description">{news.content_fr}</p>
-                            <Link to={`/news/${news.title_fr?.replace(/\s+/g, '-').toLowerCase()}`}>En savoir
+                            <h3 className="news__title">{news.title}</h3>
+                            <p className="news__description">{news.content}</p>
+                            <Link to={`/news/${news.title?.replace(/\s+/g, '-').toLowerCase()}`}>En savoir
                                 plus
                             </Link>
                         </div>
