@@ -1,6 +1,6 @@
 const TODO = () => {
     return (<>
-        - puis remettre en prod
+        - vérifier s'il faut relancer le serveur en prod
 
         3) Louis achète le skin sur le market place
         - Vérification du nombre d'écopoco que Louis possède

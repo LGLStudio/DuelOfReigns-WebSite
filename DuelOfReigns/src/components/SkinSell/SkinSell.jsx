@@ -224,7 +224,6 @@ const SkinSell = ({item}) => {
                         :
                         <Button
                             color="primary"
-                            // onClick={() => alert("En cours d'implémentation.")}
                             onClick={createSellSkin}
                             disabled={disabled}
                         >
