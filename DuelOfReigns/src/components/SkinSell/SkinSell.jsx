@@ -68,7 +68,6 @@ const SkinSell = ({item}) => {
             setInputPrice(value);
             setInputReceive(value - (value * 0.1));
         }
-
     }
 
     const createSellSkin = async () => {
@@ -80,7 +79,6 @@ const SkinSell = ({item}) => {
             price_without_commission: inputReceive,
             fee: 10,
             date_on_sale: new Date(),
-            // skin_id: item.skinId // ref document skins useless need to verify in backend
         }
 
         const response = await fetch(`${saleSkinUrl}`, {
