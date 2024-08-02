@@ -18,6 +18,7 @@ const SkinBuy = ({item}) => {
     const [alertIsOpen, setAlertIsOpen] = useState(false)
     const [alertColor, setAlertColor] = useState("light")
     const [alertText, setAlertText] = useState("")
+    const buySkinUrl = import.meta.env.VITE_SALE_SKIN_URL // same url than sell because it's juste and edit of property object
     const auth = useAuth();
     const currentUser = auth.user
 
@@ -45,12 +46,13 @@ const SkinBuy = ({item}) => {
 
     const buySkin = async () => {
         setButtonIsLoading(true);
+        const skinSaleId = item.skin_sale.id
         const skinSales = {
-            skin_sale_id: item.skin_sale.id, // ref document skin_properties
+            skin_sale_id: skinSaleId,
             user_buyer_id: currentUser.uid,
         }
 
-        const response = await fetch(`${saleSkinUrl}`, {
+        const response = await fetch(`${buySkinUrl}/${skinSaleId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
