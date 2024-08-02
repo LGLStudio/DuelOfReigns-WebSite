@@ -23,6 +23,7 @@ const MarketPage = () => {
 
                 const skinsList = await Promise.all(querySnapshot.docs.map(async (docSnapshot) => {
                     const data = docSnapshot.data();
+                    const docId = docSnapshot.id;
 
                     // Fetch skin_property details
                     // const skinDoc = await getDoc(data.skin_property);
@@ -52,7 +53,8 @@ const MarketPage = () => {
                             fee: data.fee,
                             price_without_commission: data.price_without_commission,
                             skin_properties: skinPropId,
-                            user_seller: userSellerDoc.id
+                            user_seller: userSellerDoc.id,
+                            id: docId
                         },
                         skin: skinDetails,
                         skin_properties:
