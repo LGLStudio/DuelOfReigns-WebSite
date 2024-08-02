@@ -14,6 +14,9 @@ const SkinBuy = ({item}) => {
     const [buttonIsLoading, setButtonIsLoading] = useState(false);
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+    const [alertIsOpen, setAlertIsOpen] = useState(false)
+    const [alertColor, setAlertColor] = useState("light")
+    const [alertText, setAlertText] = useState("")
 
     const convertRarityIntoImage = (rarity) => {
         switch (rarity) {
@@ -37,40 +40,39 @@ const SkinBuy = ({item}) => {
     const rarityIconId = `rarity-icon-${item?.id}`;
 
 
-    // const buySkin = async () => {
-    //     setButtonIsLoading(true);
-    //
-    //     const skinSales = {
-    //         skin_property_id: item.skinPropertyId, // ref document skin_properties
-    //         user_seller: currentUser.uid, // ref document users
-    //         price_without_commission: inputReceive,
-    //         fee: 10,
-    //         date_on_sale: new Date(),
-    //     }
-    //
-    //     const response = await fetch(`${saleSkinUrl}`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(skinSales),
-    //     });
-    //
-    //     const data = await response.json();
-    //
-    //     if (data.error) {
-    //         setButtonIsLoading(false);
-    //         // setAlertIsOpen(true)
-    //         // setAlertColor("danger")
-    //         // setAlertText(data.error)
-    //     } else {
-    //         setButtonIsLoading(false);
-    //         // setAlertIsOpen(true)
-    //         // setAlertColor("light")
-    //         // setAlertText("Le skin est mis en vente !")
-    //     }
-    //     toggleModal()
-    // }
+    const buySkin = async () => {
+        setButtonIsLoading(true);
+
+        const skinSales = {
+            skin_property_id: item.skinPropertyId, // ref document skin_properties
+            user_seller: currentUser.uid, // ref document users
+            price_without_commission: inputReceive,
+            fee: 10,
+            date_on_sale: new Date(),
+        }
+
+        const response = await fetch(`${saleSkinUrl}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(skinSales),
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+            setButtonIsLoading(false);
+            setAlertIsOpen(true)
+            setAlertColor("danger")
+            setAlertText(data.error)
+        } else {
+            setButtonIsLoading(false);
+            setAlertIsOpen(true)
+            setAlertColor("light")
+            setAlertText("Le skin est mis en vente !")
+        }
+    }
 
     return (
         <div className="single__skin__card">
@@ -101,7 +103,7 @@ const SkinBuy = ({item}) => {
                             size="small"
                             color="primary"
                             className="d-flex align-items-center gap-2"
-                            // onClick={buySkin}
+                            onClick={buySkin}
                         >
                             <i className="ri-shopping-bag-line"></i>
                         </Button>
