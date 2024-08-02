@@ -2,6 +2,8 @@ const TODO = () => {
     return (<>
         - vérifier s'il faut relancer le serveur en prod
 
+        - Faire la partie backend de buy skin : ca consiste juste a modifier le document de skin property en changeant le propeiét&rire
+
         3) Louis achète le skin sur le market place
         - Vérification du nombre d'écopoco que Louis possède
         - Débite les Ecopoco de Louis de (Skin_Sale.price + Skin_Sale.price*Skin_Sale.Fee)
