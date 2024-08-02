@@ -8,6 +8,7 @@ import CopperImg from "../../assets/images/copper.png";
 import SilverImg from "../../assets/images/silver.png";
 import GoldImg from "../../assets/images/gold.png";
 import DiamondImg from "../../assets/images/diamond.png";
+import {useAuth} from "../../AuthProvider.jsx";
 
 const SkinBuy = ({item}) => {
     const price = item.skin_sale.price_without_commission + (item.skin_sale.price_without_commission * item.skin_sale.fee / 100);
@@ -17,6 +18,8 @@ const SkinBuy = ({item}) => {
     const [alertIsOpen, setAlertIsOpen] = useState(false)
     const [alertColor, setAlertColor] = useState("light")
     const [alertText, setAlertText] = useState("")
+    const auth = useAuth();
+    const currentUser = auth.user
 
     const convertRarityIntoImage = (rarity) => {
         switch (rarity) {
@@ -42,13 +45,9 @@ const SkinBuy = ({item}) => {
 
     const buySkin = async () => {
         setButtonIsLoading(true);
-
         const skinSales = {
-            skin_property_id: item.skinPropertyId, // ref document skin_properties
-            user_seller: currentUser.uid, // ref document users
-            price_without_commission: inputReceive,
-            fee: 10,
-            date_on_sale: new Date(),
+            skin_sale_id: item.skin_sale.id, // ref document skin_properties
+            user_buyer_id: currentUser.uid,
         }
 
         const response = await fetch(`${saleSkinUrl}`, {
