@@ -72,7 +72,6 @@ const SkinBuy = ({item}) => {
             setAlertText("Le skin est mis en vente !")
         }
     }
-
     return (
         <div className="single__skin__card">
             <div className="skin__img">
@@ -84,29 +83,33 @@ const SkinBuy = ({item}) => {
                 </div>
 
                 <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                    {buttonIsLoading ?
-                        <Button
-                            color="primary"
-                            disabled
-                        >
-                            <Spinner size="sm">
-                                Loading...
-                            </Spinner>
-                            <span>
-                                {' '} Achat en cours ...
-                            </span>
-                        </Button>
-                        :
-                        <Button
-                            id={buyBtnId}
-                            size="small"
-                            color="primary"
-                            className="d-flex align-items-center gap-2"
-                            onClick={buySkin}
-                        >
-                            <i className="ri-shopping-bag-line"></i>
-                        </Button>
-                    }
+
+                    {currentUser ? (
+                        buttonIsLoading ? (
+                            <Button
+                                color="primary"
+                                disabled
+                            >
+                                <Spinner size="sm">
+                                    Loading...
+                                </Spinner>
+                                <span>{' '} Achat en cours ...</span>
+                            </Button>
+                        ) : (
+                            <Button
+                                id={buyBtnId}
+                                size="small"
+                                color="primary"
+                                className="d-flex align-items-center gap-2"
+                                onClick={buySkin}
+                            >
+                                <i className="ri-shopping-bag-line"></i>
+                            </Button>
+                        )
+                    ) : (
+                        <div style={{fontSize: "x-small", fontStyle: "italic"}}>se connecter pour acheter</div>
+                    )}
+
                     <div>
                         Prix {price}
                         <img width={20} src={ecopocoTail} alt="ecopoco-icon"/>
