@@ -9,14 +9,18 @@ import DiamondImg from "../../assets/images/diamond.png"
 import {useAuth} from "../../AuthProvider.jsx";
 
 /**
- * @param item
- * @param item.image
- * @param item.name
- * @param item.rarity
- * @param item.skinId
- * @param item.skinPropertyId
- * @returns {Element}
- * @constructor
+ * SkinSell component renders a card for selling a skin item. It provides a form for the user to
+ * set a price, view the fees, and confirm the sale of the skin. The component includes a modal for
+ * confirming the sale, loading states, tooltips for skin rarity, and alerts for feedback on the sale process.
+ *
+ * @component
+ * @param {Object} item - The skin item to be displayed and sold.
+ * @param {string} item.image - The URL of the skin's image.
+ * @param {string} item.name - The name of the skin.
+ * @param {number} item.rarity - The rarity level of the skin (0: None, 1: Common, 2: Rare, 3: Epic, 4: Legendary).
+ * @param {string} item.skinId - The unique identifier of the skin.
+ * @param {string} item.skinPropertyId - The unique identifier of the skin's properties.
+ * @returns {JSX.Element} - The rendered skin sell card component.
  */
 const SkinSell = ({item}) => {
     const [tooltipOpen, setTooltipOpen] = useState(false);
@@ -37,6 +41,12 @@ const SkinSell = ({item}) => {
     const [alertColor, setAlertColor] = useState("light")
     const [alertText, setAlertText] = useState("")
 
+    /**
+     * Converts the rarity level into corresponding image and text descriptions.
+     *
+     * @param {number} rarity - The rarity level of the skin.
+     * @returns {Object} - An object containing the image and text description of the rarity.
+     */
     const convertRarityIntoImage = (rarity) => {
         switch (rarity) {
             case 0:
@@ -56,6 +66,11 @@ const SkinSell = ({item}) => {
 
     const rarityInfo = convertRarityIntoImage(item?.rarity);
 
+    /**
+     * Handles input changes for setting the price and calculating the expected receive amount.
+     *
+     * @param {React.ChangeEvent<HTMLInputElement>} ev - The input change event.
+     */
     const determinePrices = (ev) => {
         const target = ev.target
         const targetId = target.id
@@ -68,9 +83,12 @@ const SkinSell = ({item}) => {
             setInputPrice(value);
             setInputReceive(value - (value * 0.1));
         }
-
     }
 
+    /**
+     * Creates a sale for the skin by sending the sale data to the server.
+     * Updates the UI based on the success or failure of the sale.
+     */
     const createSellSkin = async () => {
         setButtonIsLoading(true);
 
@@ -80,7 +98,6 @@ const SkinSell = ({item}) => {
             price_without_commission: inputReceive,
             fee: 10,
             date_on_sale: new Date(),
-            // skin_id: item.skinId // ref document skins useless need to verify in backend
         }
 
         const response = await fetch(`${saleSkinUrl}`, {
@@ -226,7 +243,6 @@ const SkinSell = ({item}) => {
                         :
                         <Button
                             color="primary"
-                            // onClick={() => alert("En cours d'implémentation.")}
                             onClick={createSellSkin}
                             disabled={disabled}
                         >

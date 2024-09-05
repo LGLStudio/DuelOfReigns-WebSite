@@ -3,6 +3,16 @@ import {Button, Col, Container, Row, Spinner} from "reactstrap";
 import {useAuth} from "../AuthProvider.jsx";
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 
+/**
+ * BuyButtonComponent is a button that initiates a Stripe checkout session
+ * when clicked, allowing users to purchase Ecopoco coins. It integrates with
+ * Stripe using the provided publishable key.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.publishableKey - The Stripe publishable key used to initialize Stripe.
+ * @returns {JSX.Element} - The rendered button component.
+ */
 const BuyButtonComponent = ({publishableKey}) => {
     const [loading, setLoading] = useState(false);
     const [stripe, setStripe] = useState(null);
@@ -22,6 +32,11 @@ const BuyButtonComponent = ({publishableKey}) => {
 
     }, [stripSession])
 
+    /**
+     * Handles the button click event to start the Stripe checkout session.
+     * It sends a request to the server to create a checkout session and then
+     * redirects the user to the Stripe checkout page.
+     */
     const handleClick = async () => {
         if (!stripe) {
             console.error('Stripe.js not initialized');
@@ -64,6 +79,13 @@ const BuyButtonComponent = ({publishableKey}) => {
     );
 };
 
+/**
+ * BankPage component displays the user's current Ecopoco balance and provides
+ * an option to purchase more Ecopoco coins through a Stripe checkout.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered bank page component.
+ */
 const BankPage = () => {
     const auth = useAuth();
     const currentUser = auth.user;

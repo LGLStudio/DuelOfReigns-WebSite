@@ -7,6 +7,14 @@ import './Header.css';
 import 'remixicon/fonts/remixicon.css';
 import {useTranslation} from "react-i18next";
 
+/**
+ * Header component renders the navigation bar of the application, including links to various sections
+ * like Home, Library, Tutorial, Marketplace, Contact, Inventory, Profile, and Bank. It also includes
+ * login/logout functionality, language selection, and a responsive mobile menu toggle.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered header component with navigation and user actions.
+ */
 const Header = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen((prevState) => !prevState);

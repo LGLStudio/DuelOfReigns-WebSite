@@ -118,40 +118,6 @@ const LoginSection = () => {
         }
     };
 
-    // const handleLogin = (event) => {
-    //     event.preventDefault();
-    //     if (authInstance) {
-    //         signInWithEmailAndPassword(authInstance, email, password)
-    //             .then((userCredential) => {
-    //                 // Adapt the Firebase user object to match with User type
-    //                 const user = {
-    //                     email: userCredential.user.email,
-    //                     displayName: userCredential.user.displayName,
-    //                     phoneNumber: userCredential.user.phoneNumber,
-    //                     uid: userCredential.user.uid,
-    //                     stsTokenManager: userCredential.user.stsTokenManager,
-    //                 };
-    //                 auth?.signin(user, () => {
-    //                     // Send them back to the page they tried to visit when they were
-    //                     // redirected to the login page.
-    //                     navigate(from, {replace: true});
-    //                 });
-    //             })
-    //             .catch((error) => {
-    //                 if (error.code === "auth/wrong-password") {
-    //                     setApiError(`${t("login.form.error.wrongPassword")}`);
-    //                 } else if (error.code === "auth/invalid-email") {
-    //                     setApiError(`${t("login.form.error.invalidEmail")}`);
-    //                 } else {
-    //                     setApiError(`${error.message}`);
-    //                 }
-    //                 console.error(`Erreur FIREBASE ${error.code} ${error.message}`);
-    //             });
-    //     } else {
-    //         alert("Erreur lors de la récupération de l'instance de Firebase");
-    //     }
-    // };
-
     return (
         <section className="login__section">
             <Container fluid>

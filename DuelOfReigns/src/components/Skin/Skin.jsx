@@ -7,9 +7,26 @@ import SilverImg from "../../assets/images/silver.png";
 import GoldImg from "../../assets/images/gold.png";
 import DiamondImg from "../../assets/images/diamond.png";
 
+/**
+ * Skin component renders a single skin card with details about the skin, including
+ * the seller, the skin's image, and its rarity. It includes a tooltip that displays
+ * the rarity level of the skin when hovering over the rarity icon.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Object} props.item - The skin item to be displayed.
+ * @returns {JSX.Element} - The rendered skin card component.
+ */
 const Skin = ({item}) => {
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+
+    /**
+     * Converts the rarity level into corresponding image and text descriptions.
+     *
+     * @param {number} rarity - The rarity level of the skin.
+     * @returns {Object} - An object containing the image and text description of the rarity.
+     */
     const convertRarityIntoImage = (rarity) => {
         switch (rarity) {
             case 0:

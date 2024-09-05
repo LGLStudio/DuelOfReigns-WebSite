@@ -8,6 +8,14 @@ import ecopocoTail from "../../src/assets/images/ecopoco_pile-removebg.png";
 import {doc, getDoc, getDocs, getFirestore, collection} from "firebase/firestore";
 import {useEffect, useState} from "react";
 
+/**
+ * MarketPage component displays a marketplace where users can view and purchase skins available for sale.
+ * The component fetches skin sales data from a Firestore database, including details about each skin and the seller.
+ * It also provides an option for authenticated users to navigate to a selling page to list their own items for sale.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered marketplace page with skin items for sale and user interactions.
+ */
 const MarketPage = () => {
     const auth = useAuth();
     const navigate = useNavigate();
@@ -23,18 +31,46 @@ const MarketPage = () => {
 
                 const skinsList = await Promise.all(querySnapshot.docs.map(async (docSnapshot) => {
                     const data = docSnapshot.data();
+                    const docId = docSnapshot.id;
 
-                    // Fetch skin details
-                    const skinDoc = await getDoc(data.skin);
+                    // Fetch skin_property details
+                    // const skinDoc = await getDoc(data.skin_property);
+                    // const skinData = skinDoc.exists() ? skinDoc.data() : null;
+                    // Fetch skin_property details
+                    const skinDocRef = data.skin_property; // Assuming this is a DocumentReference
+                    const skinDoc = await getDoc(skinDocRef);
                     const skinData = skinDoc.exists() ? skinDoc.data() : null;
+
+                    let skinDetails = null;
+
+                    if (skinData && skinData.skin) {
+                        // Fetch detailed skin information
+                        const detailedSkinDoc = await getDoc(skinData.skin);
+                        skinDetails = detailedSkinDoc.exists() ? detailedSkinDoc.data() : null;
+                    }
+
+                    const skinPropId = skinDoc.id
 
                     // Fetch user seller details
                     const userSellerDoc = await getDoc(data.user_seller);
                     const userSellerData = userSellerDoc.exists() ? userSellerDoc.data() : null;
 
                     return {
-                        ...data,
-                        skin: skinData,
+                        skin_sale: {
+                            date_on_sale: data.date_on_sale,
+                            fee: data.fee,
+                            price_without_commission: data.price_without_commission,
+                            skin_properties: skinPropId,
+                            user_seller: userSellerDoc.id,
+                            id: docId
+                        },
+                        skin: skinDetails,
+                        skin_properties:
+                            {
+                                is_on_sale: skinData.is_on_sale,
+                                id: skinPropId,
+                                skin_id: skinPropId
+                            },
                         user_seller: userSellerData
                     };
                 }));

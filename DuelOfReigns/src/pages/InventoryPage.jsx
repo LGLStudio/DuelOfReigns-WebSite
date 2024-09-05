@@ -4,6 +4,13 @@ import {useAuth} from "../AuthProvider.jsx";
 import SkinSell from "../components/SkinSell/SkinSell.jsx";
 import Skin from "../components/Skin/Skin.jsx";
 
+/**
+ * InventoryPage component displays the user's skins, including those that are currently for sale.
+ * It separates the skins into two categories: all skins owned by the user and skins currently listed for sale.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered inventory page with user's skins and skins on sale.
+ */
 const InventoryPage = () => {
     const auth = useAuth();
     const skins = auth.user.skins
