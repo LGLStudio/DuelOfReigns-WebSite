@@ -1,6 +1,11 @@
 {
   "routes": [
     {
+      "src": "^/$",
+      "dest": "/index.html",
+      "status": 200
+    },
+    {
       "src": "/docs/(.*)",
       "dest": "/docs/$1",
       "status": 200
