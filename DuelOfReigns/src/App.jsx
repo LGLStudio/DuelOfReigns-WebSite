@@ -41,7 +41,7 @@ function RoutesApp() {
         <AuthProvider>
             <Header/>
             <Routes>
-                <Route path="/" element={<Navigate to='/home'/>}/>
+                <Route path="/" element={<HomePage/>}/>
                 <Route path="/home" element={<HomePage/>}/>
                 <Route path="/library" element={<LibraryPage/>}/>
                 <Route path="/library/:id" element={<CardDetailsPage/>}/>
