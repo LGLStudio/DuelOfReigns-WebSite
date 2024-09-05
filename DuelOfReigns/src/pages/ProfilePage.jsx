@@ -3,6 +3,14 @@ import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 import {useAuth} from "../AuthProvider.jsx";
 import {Button, Card, CardBody, CardTitle, FormGroup, Input, Label} from "reactstrap";
 
+/**
+ * ProfilePage component allows the user to view and update their profile information,
+ * such as display name and email. It provides input fields for changing these details
+ * and a button to submit the updates.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered profile page component.
+ */
 const ProfilePage = () => {
     const auth = useAuth();
     const currentUser = auth.user

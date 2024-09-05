@@ -8,6 +8,14 @@ import ecopocoTail from "../../src/assets/images/ecopoco_pile-removebg.png";
 import {doc, getDoc, getDocs, getFirestore, collection} from "firebase/firestore";
 import {useEffect, useState} from "react";
 
+/**
+ * MarketPage component displays a marketplace where users can view and purchase skins available for sale.
+ * The component fetches skin sales data from a Firestore database, including details about each skin and the seller.
+ * It also provides an option for authenticated users to navigate to a selling page to list their own items for sale.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered marketplace page with skin items for sale and user interactions.
+ */
 const MarketPage = () => {
     const auth = useAuth();
     const navigate = useNavigate();
