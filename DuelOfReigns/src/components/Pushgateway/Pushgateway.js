@@ -26,7 +26,7 @@ function sendMetrics() {
             if (!response.ok) {
                 console.error('Error sending metrics:', response.statusText);
             } else {
-                console.log('Metrics sent successfully:', metricsData);
+                // console.log('Metrics sent successfully:', metricsData);
             }
         })
         .catch(error => console.error('Error sending metrics:', error));

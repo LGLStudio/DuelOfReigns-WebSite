@@ -74,34 +74,61 @@ const SkinBuy = ({item}) => {
      */
     const buySkin = async () => {
         setButtonIsLoading(true);
-        const skinSaleId = item.skin_sale.id
+        const skinSaleId = item.skin_sale.id;
         const skinSales = {
             skin_sale_id: skinSaleId,
             user_buyer_id: currentUser.uid,
-        }
+        };
 
-        const response = await fetch(`${buySkinUrl}/${skinSaleId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(skinSales),
-        });
+        console.log('Starting buySkin process:', skinSales);
 
-        const data = await response.json();
+        try {
+            const response = await fetch(`${buySkinUrl}/${skinSaleId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(skinSales),
+            });
 
-        if (data.error) {
+            console.log('Response received:', response);
+
+            if (!response.ok) {
+                console.error('Error response from server:', response);
+                const errorData = await response.json();
+                console.log('Error data:', errorData);
+                setButtonIsLoading(false);
+                setAlertIsOpen(true);
+                setAlertColor("danger");
+                setAlertText(errorData.error || 'An error occurred');
+                return;
+            }
+
+            const data = await response.json();
+            console.log('Data received:', data);
+
+            if (data.error) {
+                console.error('Error in data:', data.error);
+                setButtonIsLoading(false);
+                setAlertIsOpen(true);
+                setAlertColor("danger");
+                setAlertText(data.error);
+            } else {
+                console.log('Purchase successful:', data);
+                setButtonIsLoading(false);
+                setAlertIsOpen(true);
+                setAlertColor("light");
+                setAlertText("Le skin est mis en vente !");
+            }
+        } catch (error) {
+            console.error('An error occurred during the buySkin process:', error);
             setButtonIsLoading(false);
-            setAlertIsOpen(true)
-            setAlertColor("danger")
-            setAlertText(data.error)
-        } else {
-            setButtonIsLoading(false);
-            setAlertIsOpen(true)
-            setAlertColor("light")
-            setAlertText("Le skin est mis en vente !")
+            setAlertIsOpen(true);
+            setAlertColor("danger");
+            setAlertText('An unexpected error occurred. Please try again.');
         }
-    }
+    };
+
     return (
         <div className="single__skin__card">
             <div className="skin__img">
