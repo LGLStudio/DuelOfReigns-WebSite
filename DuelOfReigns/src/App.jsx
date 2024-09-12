@@ -33,7 +33,7 @@ function RoutesApp() {
     // metrics on each page visited
     const location = useLocation();
     useEffect(() => {
-        sendMetrics();
+        // sendMetrics();
     }, [location.pathname]);
 
 
