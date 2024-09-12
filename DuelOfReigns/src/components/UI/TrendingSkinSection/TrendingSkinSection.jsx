@@ -23,13 +23,21 @@ const TrendingSkinSection = () => {
                 const skinsList = await Promise.all(querySnapshot.docs.map(async (docSnapshot) => {
                     const data = docSnapshot.data();
 
-                    // Fetch skin details
+                    if (!data || !data.skin || !data.user_seller) {
+                        console.error(`Data or required references are missing for document: ${docSnapshot.id}`);
+                        return null;
+                    }
+
                     const skinDoc = await getDoc(data.skin);
                     const skinData = skinDoc.exists() ? skinDoc.data() : null;
 
-                    // Fetch user seller details
                     const userSellerDoc = await getDoc(data.user_seller);
                     const userSellerData = userSellerDoc.exists() ? userSellerDoc.data() : null;
+
+                    if (!skinData || !userSellerData) {
+                        console.error(`Invalid skin or user seller data for document: ${docSnapshot.id}`);
+                        return null;
+                    }
 
                     return {
                         ...data,
@@ -38,7 +46,7 @@ const TrendingSkinSection = () => {
                     };
                 }));
 
-                setSkins(skinsList);
+                setSkins(skinsList.filter(skin => skin !== null));
             } catch (error) {
                 console.error("Error fetching skins for sale: ", error);
             }
