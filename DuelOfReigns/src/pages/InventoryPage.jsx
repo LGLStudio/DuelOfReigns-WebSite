@@ -14,7 +14,7 @@ import Skin from "../components/Skin/Skin.jsx";
 const InventoryPage = () => {
     const auth = useAuth();
     const skins = auth.user.skins
-    const skinsOnSell = skins.filter(skin => skin.skinIsOnSale)
+    const skinsOnSell = skins?.filter(skin => skin.skinIsOnSale)
 
     return (
         <Container fluid>
@@ -22,7 +22,7 @@ const InventoryPage = () => {
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
                 <Col lg="6">
                     Tous mes skins
-                    {skins.map(skin => (
+                    {skins && skins.map(skin => (
                         <div style={{
                             width: "200px",
                             margin: "1rem"
@@ -35,7 +35,7 @@ const InventoryPage = () => {
                 </Col>
                 <Col lg="6">
                     Mes skins en vente
-                    {skinsOnSell.map(skin => (
+                    {skinsOnSell && skinsOnSell.map(skin => (
                         <div style={{
                             width: "200px",
                             margin: "1rem"

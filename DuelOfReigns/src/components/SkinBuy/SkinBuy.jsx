@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import ecopocoTail from "../../assets/images/ecopoco_pile-removebg.png";
 import './skinSell.css';
@@ -33,12 +33,17 @@ const SkinBuy = ({item}) => {
     const [buttonIsLoading, setButtonIsLoading] = useState(false);
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+    const [cardIsSold, setCardIsSold] = useState(false);
     const [alertIsOpen, setAlertIsOpen] = useState(false)
     const [alertColor, setAlertColor] = useState("light")
     const [alertText, setAlertText] = useState("")
     const buySkinUrl = import.meta.env.VITE_SALE_SKIN_URL // same url than sell because it's juste and edit of property object
     const auth = useAuth();
     const currentUser = auth.user
+
+    useEffect(()=>{
+
+    }, [cardIsSold])
 
     /**
      * Converts the rarity level into corresponding image and text descriptions.
@@ -80,8 +85,6 @@ const SkinBuy = ({item}) => {
             user_buyer_id: currentUser.uid,
         };
 
-        console.log('Starting buySkin process:', skinSales);
-
         try {
             const response = await fetch(`${buySkinUrl}/${skinSaleId}`, {
                 method: 'PUT',
@@ -90,8 +93,6 @@ const SkinBuy = ({item}) => {
                 },
                 body: JSON.stringify(skinSales),
             });
-
-            console.log('Response received:', response);
 
             if (!response.ok) {
                 console.error('Error response from server:', response);
@@ -105,7 +106,6 @@ const SkinBuy = ({item}) => {
             }
 
             const data = await response.json();
-            console.log('Data received:', data);
 
             if (data.error) {
                 console.error('Error in data:', data.error);
@@ -114,7 +114,7 @@ const SkinBuy = ({item}) => {
                 setAlertColor("danger");
                 setAlertText(data.error);
             } else {
-                console.log('Purchase successful:', data);
+                setCardIsSold(true)
                 setButtonIsLoading(false);
                 setAlertIsOpen(true);
                 setAlertColor("light");
@@ -134,59 +134,67 @@ const SkinBuy = ({item}) => {
             <div className="skin__img">
                 <img src={item?.skin?.image} className="w-100" alt="skin img"/>
             </div>
-            <div className="skin__content">
-                <div>
-                    <span>Vendeur</span> : <span>{item?.user_seller?.name}</span>
-                </div>
+            {cardIsSold ?
+                <p>Achat effectué.</p>
+                :
+                <>
+                    <div className="skin__content">
+                        <div>
+                            <span>Vendeur</span> : <span>{item?.user_seller?.name}</span>
+                        </div>
 
-                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                            {currentUser ? (
+                                buttonIsLoading ? (
+                                    <Button
+                                        color="primary"
+                                        disabled
+                                    >
+                                        <Spinner size="sm">
+                                            Loading...
+                                        </Spinner>
+                                        <span>{' '} Achat en cours ...</span>
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        id={buyBtnId}
+                                        size="small"
+                                        color="primary"
+                                        className="d-flex align-items-center gap-2"
+                                        onClick={buySkin}
+                                    >
+                                        <i className="ri-shopping-bag-line"></i>
+                                        Achat
+                                    </Button>
+                                )
+                            ) : (
+                                <div style={{fontSize: "x-small", fontStyle: "italic"}}>se connecter pour acheter</div>
+                            )}
 
-                    {currentUser ? (
-                        buttonIsLoading ? (
-                            <Button
-                                color="primary"
-                                disabled
-                            >
-                                <Spinner size="sm">
-                                    Loading...
-                                </Spinner>
-                                <span>{' '} Achat en cours ...</span>
-                            </Button>
-                        ) : (
-                            <Button
-                                id={buyBtnId}
-                                size="small"
-                                color="primary"
-                                className="d-flex align-items-center gap-2"
-                                onClick={buySkin}
-                            >
-                                <i className="ri-shopping-bag-line"></i>
-                            </Button>
-                        )
-                    ) : (
-                        <div style={{fontSize: "x-small", fontStyle: "italic"}}>se connecter pour acheter</div>
-                    )}
+                            <div>
+                                Prix {price}
+                                <img width={20} src={ecopocoTail} alt="ecopoco-icon"/>
+                            </div>
+                        </div>
 
-                    <div>
-                        Prix {price}
-                        <img width={20} src={ecopocoTail} alt="ecopoco-icon"/>
+                        <div className="skin__creator__info-wrapper d-flex gap-3">
+                            <div
+                                className="skin__creator__info w-100 d-flex align-items-center justify-content-between">
+                                <h5 className="skin__title">
+                                    <Link to={`/marketplace/${item?.user_seller?.name}/${item?.skin?.id}`}>
+                                        {item?.skin?.name}
+                                    </Link>
+                                </h5>
+                                <img id={rarityIconId} width={50} src={rarityInfo?.img} alt="logo rarity"/>
+                                <Tooltip isOpen={tooltipOpen} target={rarityIconId} toggle={toggleTooltip}>
+                                    {rarityInfo?.text}
+                                </Tooltip>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </>
+            }
 
-                <div className="skin__creator__info-wrapper d-flex gap-3">
-                    <div className="skin__creator__info w-100 d-flex align-items-center justify-content-between">
-                        <h5 className="skin__title">
-                            <Link to={`/marketplace/${item?.user_seller?.name}/${item?.skin?.id}`}>
-                                {item?.skin?.name}
-                            </Link>
-                        </h5>
-                        <img id={rarityIconId} width={50} src={rarityInfo?.img} alt="logo rarity"/>
-                        <Tooltip isOpen={tooltipOpen} target={rarityIconId} toggle={toggleTooltip}>
-                            {rarityInfo?.text}
-                        </Tooltip>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };
