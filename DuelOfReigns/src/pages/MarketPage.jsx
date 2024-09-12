@@ -5,7 +5,7 @@ import {Button, Spinner} from "reactstrap";
 import {useNavigate} from "react-router-dom";
 import ecopocoHead from "../../src/assets/images/ecopoco_face-removebg.png";
 import ecopocoTail from "../../src/assets/images/ecopoco_pile-removebg.png";
-import {doc, getDoc, getDocs, getFirestore, collection} from "firebase/firestore";
+import {collection, doc, getDoc, getDocs, getFirestore, query, where} from "firebase/firestore";
 import {useEffect, useState} from "react";
 
 /**
@@ -29,51 +29,51 @@ const MarketPage = () => {
                 const skinsRef = collection(db, 'skin_sales');
                 const querySnapshot = await getDocs(skinsRef);
 
-                const skinsList = await Promise.all(querySnapshot.docs.map(async (docSnapshot) => {
-                    const data = docSnapshot.data();
-                    const docId = docSnapshot.id;
+                const skinsList = await Promise.all(
+                    querySnapshot.docs
+                        .filter(docSnapshot => {
+                            const data = docSnapshot.data();
+                            return !('user_buyer' in data) || data.user_buyer === null;
+                        })
+                        .map(async (docSnapshot) => {
+                            const data = docSnapshot.data();
+                            const docId = docSnapshot.id;
 
-                    // Fetch skin_property details
-                    // const skinDoc = await getDoc(data.skin_property);
-                    // const skinData = skinDoc.exists() ? skinDoc.data() : null;
-                    // Fetch skin_property details
-                    const skinDocRef = data.skin_property; // Assuming this is a DocumentReference
-                    const skinDoc = await getDoc(skinDocRef);
-                    const skinData = skinDoc.exists() ? skinDoc.data() : null;
+                            const skinDocRef = data.skin_property; // Référence au document skin_property
+                            const skinDoc = await getDoc(skinDocRef);
+                            const skinData = skinDoc.exists() ? skinDoc.data() : null;
 
-                    let skinDetails = null;
+                            let skinDetails = null;
 
-                    if (skinData && skinData.skin) {
-                        // Fetch detailed skin information
-                        const detailedSkinDoc = await getDoc(skinData.skin);
-                        skinDetails = detailedSkinDoc.exists() ? detailedSkinDoc.data() : null;
-                    }
+                            if (skinData && skinData.skin) {
+                                const detailedSkinDoc = await getDoc(skinData.skin);
+                                skinDetails = detailedSkinDoc.exists() ? detailedSkinDoc.data() : null;
+                            }
 
-                    const skinPropId = skinDoc.id
+                            const skinPropId = skinDoc.id;
 
-                    // Fetch user seller details
-                    const userSellerDoc = await getDoc(data.user_seller);
-                    const userSellerData = userSellerDoc.exists() ? userSellerDoc.data() : null;
+                            const userSellerDoc = await getDoc(data.user_seller);
+                            const userSellerData = userSellerDoc.exists() ? userSellerDoc.data() : null;
 
-                    return {
-                        skin_sale: {
-                            date_on_sale: data.date_on_sale,
-                            fee: data.fee,
-                            price_without_commission: data.price_without_commission,
-                            skin_properties: skinPropId,
-                            user_seller: userSellerDoc.id,
-                            id: docId
-                        },
-                        skin: skinDetails,
-                        skin_properties:
-                            {
-                                is_on_sale: skinData.is_on_sale,
-                                id: skinPropId,
-                                skin_id: skinPropId
-                            },
-                        user_seller: userSellerData
-                    };
-                }));
+                            return {
+                                skin_sale: {
+                                    date_on_sale: data.date_on_sale,
+                                    fee: data.fee,
+                                    price_without_commission: data.price_without_commission,
+                                    skin_properties: skinPropId,
+                                    user_seller: userSellerDoc.id,
+                                    id: docId
+                                },
+                                skin: skinDetails,
+                                skin_properties: {
+                                    is_on_sale: skinData.is_on_sale,
+                                    id: skinPropId,
+                                    skin_id: skinPropId
+                                },
+                                user_seller: userSellerData
+                            };
+                        })
+                );
 
                 setSkins(skinsList);
             } catch (error) {
@@ -83,6 +83,7 @@ const MarketPage = () => {
 
         getSkins().then();
     }, [db]);
+
 
     return (
         <>
