@@ -3,6 +3,7 @@ import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 import {useAuth} from "../AuthProvider.jsx";
 import SkinSell from "../components/SkinSell/SkinSell.jsx";
 import Skin from "../components/Skin/Skin.jsx";
+import {t} from "i18next";
 
 /**
  * InventoryPage component displays the user's skins, including those that are currently for sale.
@@ -21,7 +22,7 @@ const InventoryPage = () => {
             <BlockHeader/>
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
                 <Col lg="6">
-                    Tous mes skins
+                    {t("Tous mes skins")}
                     {skins && skins.map(skin => (
                         <div style={{
                             width: "200px",
@@ -34,7 +35,7 @@ const InventoryPage = () => {
                     ))}
                 </Col>
                 <Col lg="6">
-                    Mes skins en vente
+                    {t("Mes skins en vente")}
                     {skinsOnSell && skinsOnSell.map(skin => (
                         <div style={{
                             width: "200px",

@@ -6,6 +6,7 @@ import './TrendingSkinSection.css';
 import {collection, getDoc, getDocs, getFirestore} from "firebase/firestore";
 import {useAuth} from "../../../AuthProvider.jsx";
 import SkinBuy from "../../SkinBuy/SkinBuy.jsx";
+import {t} from "i18next";
 
 const TrendingSkinSection = () => {
     const auth = useAuth();
@@ -63,7 +64,7 @@ const TrendingSkinSection = () => {
                     <div className="trending__title mb-5 d-flex align-items-center justify-content-between">
                         <h2>Skins en Vente</h2>
                         <Link to='/market'>
-                            <span className="btn"><i className="ri-t-shirt-line"></i> Explorer</span>
+                            <span className="btn"><i className="ri-t-shirt-line"></i>{t("Explorer")}</span>
                         </Link>
                     </div>
                 </Col>
@@ -73,7 +74,7 @@ const TrendingSkinSection = () => {
                             <SkinBuy item={skin}/>
                         </Col>
                     ))
-                    : <p>Pas d'article en vente.</p>}
+                    : <p>{t("Pas d'article en vente")}.</p>}
             </Row>
         </Container>
     </section>

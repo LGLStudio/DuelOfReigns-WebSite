@@ -7,6 +7,7 @@ import ecopocoHead from "../../src/assets/images/ecopoco_face-removebg.png";
 import ecopocoTail from "../../src/assets/images/ecopoco_pile-removebg.png";
 import {collection, doc, getDoc, getDocs, getFirestore, query, where} from "firebase/firestore";
 import {useEffect, useState} from "react";
+import {t} from "i18next";
 
 /**
  * MarketPage component displays a marketplace where users can view and purchase skins available for sale.
@@ -97,9 +98,9 @@ const MarketPage = () => {
                         primary={true}
                         color="primary"
                     >
-                        Vendre un item
+                        {t("Vendre un item")}
                     </Button>
-                    : "Veuillez vous connecter pour vendre un item."}
+                    : t("Veuillez vous connecter pour vendre un item.")}
             </div>
             <div style={{
                 display: "flex",
@@ -109,12 +110,12 @@ const MarketPage = () => {
             }}>
                 {auth?.user ?
                     <div>
-                        Mes ecopocos : {auth.user.coins || 0} <img width={20} src={ecopocoTail} alt={"ecopoco-icon"}/>
+                        {t("Mes ecopocos")} : {auth.user.coins || 0} <img width={20} src={ecopocoTail} alt={"ecopoco-icon"}/>
                     </div>
                     :
                     <></>}
                 <div>
-                    Les différents cosmétiques en ventes :
+                    {t("Les différents cosmétiques en ventes")} :
                 </div>
             </div>
             <div>

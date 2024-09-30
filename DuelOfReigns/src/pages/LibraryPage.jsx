@@ -1,8 +1,9 @@
 import React from "react";
+import {t} from "i18next";
 
 const LibraryPage = () => {
     return (
-        <div>Bibliothèque</div>
+        <div>{t("Bibliothèque")}</div>
     )
 };
 

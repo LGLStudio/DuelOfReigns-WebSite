@@ -1,0 +1,80 @@
+{
+  "Duel of Reigns": "Duel of Reigns",
+  "Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie": "Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie",
+  "Mon Compte": "Mon Compte",
+  "Editer": "Éditer",
+  "Statistique": "Statistique",
+  "Historique": "Historique",
+  "Skins": "Skins",
+  "Ressources": "Ressources",
+  "Aide": "Aide",
+  "Partenaire": "Partenaire",
+  "Communauté": "Communauté",
+  "Activité": "Activité",
+  "Studio": "Studio",
+  "A Propos": "À Propos",
+  "Créateur": "Créateur",
+  "Projet": "Projet",
+  "Contact": "Contact",
+  "Adresse Mail": "Adresse Mail",
+  "Politique de confidentialité et conditions d'utilisation": "Politique de confidentialité et conditions d'utilisation",
+  "Accueil": "Accueil",
+  "Bibliothèque": "Bibliothèque",
+  "Tutoriel": "Tutoriel",
+  "Marketplace": "Marketplace",
+  "Inventaire": "Inventaire",
+  "Profil": "Profil",
+  "Banque": "Banque",
+  "Déconnexion": "Déconnexion",
+  "Connexion": "Connexion",
+  "Inscription": "Inscription",
+  "home": {
+    "HeroSection": {
+      "title": "Duel of Reigns",
+      "paragraph": {
+        "part_1": "Plongez dans l'univers"
+      }
+    }
+  },
+  "un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie": "un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie",
+  "Tissez des alliances stratégiques entre factions, consolidant ainsi votre pouvoir, afin d'imposer votre règne indéfectible !": "Tissez des alliances stratégiques entre factions, consolidant ainsi votre pouvoir, afin d'imposer votre règne indéfectible !",
+  "Télécharger le jeu": "Télécharger le jeu",
+  "login": {
+    "form": {
+      "error": {
+        "wrongPassword": "Mot de passe incorrect",
+        "invalidEmail": "Email invalide"
+      }
+    }
+  },
+  "register": {
+    "form": {
+      "error": {
+        "passwordsDontMatch": "Les mots de passe ne correspondent pas"
+      },
+      "success": "Inscription réussie"
+    }
+  },
+  "Dernières Nouveautés": "Dernières Nouveautés",
+  "En savoir plus": "En savoir plus",
+  "Classement Hebdomadaire": "Classement Hebdomadaire",
+  "Explorer": "Explorer",
+  "Pas d'article en vente": "Pas d'article en vente",
+  "Chargement": "Chargement",
+  "Acheter quelques Ecopoco": "Acheter quelques Ecopoco",
+  "Solde actuel": "Solde actuel",
+  "Tous mes skins": "Tous mes skins",
+  "Mes skins en vente": "Mes skins en vente",
+  "Vendre un item": "Vendre un item",
+  "Veuillez vous connecter pour vendre un item": "Veuillez vous connecter pour vendre un item",
+  "Mes ecopocos": "Mes écopocos",
+  "Les différents cosmétiques en ventes": "Les différents cosmétiques en ventes",
+  "Pseudo": "Pseudo",
+  "Entrer un nouveau pseudo": "Entrer un nouveau pseudo",
+  "Entrer un nouvel email": "Entrer un nouvel email",
+  "Mettre à jour profil": "Mettre à jour profil",
+  "Sélectionnez un item dans votre inventaire": "Sélectionnez un item dans votre inventaire",
+  "Skins déjà en vente": "Skins déjà en vente",
+  "Skins pas en vente": "Skins pas en vente",
+  "Règles": "Règles"
+}

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 import {useAuth} from "../AuthProvider.jsx";
 import {Button, Card, CardBody, CardTitle, FormGroup, Input, Label} from "reactstrap";
+import {t} from "i18next";
 
 /**
  * ProfilePage component allows the user to view and update their profile information,
@@ -47,12 +48,12 @@ const ProfilePage = () => {
                 <CardBody>
                     <CardTitle>Paramétrage du profile</CardTitle>
                     <FormGroup>
-                        <Label for="displayName">Pseudo</Label>
+                        <Label for="displayName">{t("Pseudo")}</Label>
                         <Input
                             type="text"
                             name="displayName"
                             id="displayName"
-                            placeholder="Entrer un nouveau pseudo"
+                            placeholder={t("Entrer un nouveau pseudo")}
                             value={newDisplayName}
                             onChange={handleDisplayNameChange}
                         />
@@ -63,13 +64,13 @@ const ProfilePage = () => {
                             type="email"
                             name="email"
                             id="email"
-                            placeholder="Entrer un nouvel email"
+                            placeholder={t("Entrer un nouvel email")}
                             value={newEmail}
                             onChange={handleEmailChange}
                         />
                     </FormGroup>
                     <Button color="warning" onClick={handleUpdateProfile}>
-                        Update Profile
+                        {t("Mettre à jour profil")}
                     </Button>
                 </CardBody>
             </Card>

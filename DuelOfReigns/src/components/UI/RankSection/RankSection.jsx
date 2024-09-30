@@ -4,6 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 import avatarURL from '../../../assets/images/hero-img.jpg'
 
 import './RankSection.css';
+import {t} from "i18next";
 
 const RankSection = () => {
     return <section className="rank__section">
@@ -11,7 +12,7 @@ const RankSection = () => {
             <Row>
                 <Col lg='12'>
                     <div className="ranking__section-title mb-5">
-                        <h2>Classement Hebdomadaire</h2>
+                        <h2>{t("Classement Hebdomadaire")}</h2>
                     </div>
                 </Col>
                 <Col lg='2' md='3' sm='4' xs='6' className="mb-4">

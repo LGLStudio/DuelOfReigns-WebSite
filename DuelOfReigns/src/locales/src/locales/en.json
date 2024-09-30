@@ -1,0 +1,80 @@
+{
+  "Duel of Reigns": "Duel of Reigns",
+  "Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie": "Immerse yourself in the world of Duel of Reigns, a strategic card game set in the heart of a heroic-fantasy world",
+  "Mon Compte": "My Account",
+  "Editer": "Edit",
+  "Statistique": "Statistics",
+  "Historique": "History",
+  "Skins": "Skins",
+  "Ressources": "Resources",
+  "Aide": "Help",
+  "Partenaire": "Partner",
+  "Communauté": "Community",
+  "Activité": "Activity",
+  "Studio": "Studio",
+  "A Propos": "About",
+  "Créateur": "Creator",
+  "Projet": "Project",
+  "Contact": "Contact",
+  "Adresse Mail": "Email Address",
+  "Politique de confidentialité et conditions d'utilisation": "Privacy Policy and Terms of Use",
+  "Accueil": "Home",
+  "Bibliothèque": "Library",
+  "Tutoriel": "Tutorial",
+  "Marketplace": "Marketplace",
+  "Inventaire": "Inventory",
+  "Profil": "Profile",
+  "Banque": "Bank",
+  "Déconnexion": "Logout",
+  "Connexion": "Login",
+  "Inscription": "Register",
+  "home": {
+    "HeroSection": {
+      "title": "Duel of Reigns",
+      "paragraph": {
+        "part_1": "Immerse yourself"
+      }
+    }
+  },
+  "un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie": "a strategic card game set in the heart of a heroic-fantasy world",
+  "Tissez des alliances stratégiques entre factions, consolidant ainsi votre pouvoir, afin d'imposer votre règne indéfectible !": "Weave strategic alliances between factions, thus consolidating your power to impose your unwavering reign!",
+  "Télécharger le jeu": "Download the game",
+  "login": {
+    "form": {
+      "error": {
+        "wrongPassword": "Wrong password",
+        "invalidEmail": "Invalid email"
+      }
+    }
+  },
+  "register": {
+    "form": {
+      "error": {
+        "passwordsDontMatch": "Passwords don't match"
+      },
+      "success": "Registration successful"
+    }
+  },
+  "Dernières Nouveautés": "Latest News",
+  "En savoir plus": "Learn more",
+  "Classement Hebdomadaire": "Weekly Ranking",
+  "Explorer": "Explore",
+  "Pas d'article en vente": "No items for sale",
+  "Chargement": "Loading",
+  "Acheter quelques Ecopoco": "Buy some Ecopoco",
+  "Solde actuel": "Current balance",
+  "Tous mes skins": "All my skins",
+  "Mes skins en vente": "My skins for sale",
+  "Vendre un item": "Sell an item",
+  "Veuillez vous connecter pour vendre un item": "Please log in to sell an item",
+  "Mes ecopocos": "My Ecopocos",
+  "Les différents cosmétiques en ventes": "Various cosmetics for sale",
+  "Pseudo": "Username",
+  "Entrer un nouveau pseudo": "Enter a new username",
+  "Entrer un nouvel email": "Enter a new email",
+  "Mettre à jour profil": "Update profile",
+  "Sélectionnez un item dans votre inventaire": "Select an item from your inventory",
+  "Skins déjà en vente": "Skins already for sale",
+  "Skins pas en vente": "Skins not for sale",
+  "Règles": "Rules"
+}

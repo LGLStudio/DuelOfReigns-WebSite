@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Container, Row, ListGroup, List, ListGroupItem } from "reactstrap";
 
 import "./Footer.css";
+import {t} from "i18next";
 
 const Footer = (props) => {
     return <footer className="footer">
@@ -13,69 +14,70 @@ const Footer = (props) => {
                         <h2 className="d-flex gap-2 align-items-center">
                             <span>
                                 <i className="ri-vip-crown-fill"></i>
-                            </span> Duel of Reigns
+                            </span>
+                            {t("Duel of Reigns")}
                         </h2>
-                        <p>Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie.</p>
+                        <p>{t("Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie")}.</p>
                     </div>
                 </Col>
 
                 <Col lg='2' md='3' sm='6'>
-                    <h5>Mon Compte</h5>
+                    <h5>{t("Mon Compte")}</h5>
                     <ListGroup className="list__group">
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Editer</Link>
+                            <Link to='#'>{t("Editer")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Statistique</Link>
+                            <Link to='#'>{t("Statistique")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Historique</Link>
+                            <Link to='#'>{t("Historique")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Skins</Link>
+                            <Link to='#'>{t("Skins")}</Link>
                         </ListGroupItem>
                     </ListGroup>
                 </Col>
 
                 <Col lg='2' md='3' sm='6'>
-                    <h5>Ressources</h5>
+                    <h5>{t("Ressources")}</h5>
                     <ListGroup className="list__group">
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Aide</Link>
+                            <Link to='#'>{t("Aide")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Partenaire</Link>
+                            <Link to='#'>{t("Partenaire")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Communauté</Link>
+                            <Link to='#'>{t("Communauté")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Activité</Link>
+                            <Link to='#'>{t("Activité")}</Link>
                         </ListGroupItem>
                     </ListGroup>
                 </Col>
 
                 <Col lg='2' md='3' sm='6'>
-                    <h5>Studio</h5>
+                    <h5>{t("Studio")}</h5>
                     <ListGroup className="list__group">
                         <ListGroupItem className="list__item">
-                            <Link to='#'>A Propos</Link>
+                            <Link to='#'>{t("A Propos")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Créateur</Link>
+                            <Link to='#'>{t("Créateur")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Projet</Link>
+                            <Link to='#'>{t("Projet")}</Link>
                         </ListGroupItem>
                         <ListGroupItem className="list__item">
-                            <Link to='#'>Contact</Link>
+                            <Link to='#'>{t("Contact")}</Link>
                         </ListGroupItem>
                     </ListGroup>
                 </Col>
 
                 <Col lg='3' md='6' sm='6'>
                     <h5>Newsletter</h5>
-                    <input type="text" className="newsletter" placeholder="Adresse Mail" />
+                    <input type="text" className="newsletter" placeholder={t("Adresse Mail")} />
                     <div className="social__links d-flex gap-3 align-items-center">
                         <span><Link to="#"><i className="ri-facebook-fill"></i></Link></span>
                         <span><Link to="#"><i className="ri-instagram-fill"></i></Link></span>
@@ -87,7 +89,7 @@ const Footer = (props) => {
                     {" "}
                     <p className="copyright">Copyright 2023, Developed by LGL Studio. Tous droits réservés.</p>
                     {" "}
-                    <span><Link to="/privacy-and-terms"> Politique de confidentialité et conditions d'utilisation.</Link></span>
+                    <span><Link to="/privacy-and-terms">{t("Politique de confidentialité et conditions d'utilisation")}.</Link></span>
 
                 </Col>
             </Row>

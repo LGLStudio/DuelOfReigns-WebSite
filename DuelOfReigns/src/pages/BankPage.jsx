@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Row, Spinner} from "reactstrap";
 import {useAuth} from "../AuthProvider.jsx";
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
+import {t} from "i18next";
 
 /**
  * BuyButtonComponent is a button that initiates a Stripe checkout session
@@ -74,7 +75,7 @@ const BuyButtonComponent = ({publishableKey}) => {
 
     return (
         <Button onClick={handleClick} disabled={loading}>
-            {loading ? 'Loading...' : 'Acheter quelqes Ecopoco'}
+            {loading ? t('Chargement...') : t('Acheter quelques Ecopoco')}
         </Button>
     );
 };
@@ -96,14 +97,14 @@ const BankPage = () => {
             <BlockHeader/>
             <Row style={{padding: '5rem', height: '100px'}}>
                 <Col lg="6">
-                    <span style={{color: 'black'}}>Solde actuel : {currentUser?.coins}</span>
+                    <span style={{color: 'black'}}>{t("Solde actuel")} : {currentUser?.coins}</span>
                 </Col>
                 <Col lg="6">
                     {stripeKey ? (
                         <BuyButtonComponent publishableKey={stripeKey}/>
                     ) : (
                         <div>
-                            <p>Chargement</p>
+                            <p>{t("Chargement")}</p>
                             <Spinner/>
                         </div>
                     )}

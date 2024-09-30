@@ -1,6 +1,7 @@
 import BlockHeader from "../components/UI/BlockHeader/BlockHeader.jsx";
 import {useAuth} from "../AuthProvider.jsx";
 import SkinSell from "../components/SkinSell/SkinSell.jsx";
+import {t} from "i18next";
 
 const SellPage = () => {
     const auth = useAuth();
@@ -24,7 +25,7 @@ const SellPage = () => {
                 alignItems: "center"
             }}>
                 <div>
-                    Sélectionnez un item dans votre inventaire
+                    {t("Sélectionnez un item dans votre inventaire")}
                 </div>
                 {/*<div>*/}
                 {/*    Vous recherchez un item particulier ?*/}
@@ -33,7 +34,7 @@ const SellPage = () => {
             </div>
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-evenly"}}>
                 <div>
-                    Skins déjà en vente
+                    {t("Skins déjà en vente")}
                     {skinsOnSell.map(skin => (
                         <div style={{
                             width: "200px",
@@ -45,7 +46,7 @@ const SellPage = () => {
                         </div>
                     ))}
                 </div>
-                Skins pas en vente
+                {t("Skins pas en vente")}
                 {skinsNotOnSell.map(skin => (
                     <div style={{
                         width: "200px",

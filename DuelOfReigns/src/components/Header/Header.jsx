@@ -47,36 +47,36 @@ const Header = () => {
                     <ul className="nav__list">
                         <li className="nav__item">
                             <NavLink to="/home"
-                                     className={navClass => navClass.isActive ? 'active' : ''}>Accueil</NavLink>
+                                     className={navClass => navClass.isActive ? 'active' : ''}>{t("Accueil")}</NavLink>
                         </li>
                         <li className="nav__item">
                             <NavLink to="/library"
-                                     className={navClass => navClass.isActive ? 'active' : ''}>Bibliothèque</NavLink>
+                                     className={navClass => navClass.isActive ? 'active' : ''}>{t("Bibliothèque")}</NavLink>
                         </li>
                         <li className="nav__item">
                             <NavLink to="/tutorial"
-                                     className={navClass => navClass.isActive ? 'active' : ''}>Tutoriel</NavLink>
+                                     className={navClass => navClass.isActive ? 'active' : ''}>{t("Tutoriel")}</NavLink>
                         </li>
                         <li className="nav__item">
                             <NavLink to="/market"
-                                     className={navClass => navClass.isActive ? 'active' : ''}>Marketplace</NavLink>
+                                     className={navClass => navClass.isActive ? 'active' : ''}>{t("Marketplace")}</NavLink>
                         </li>
                         <li className="nav__item">
                             <NavLink to="/contact"
-                                     className={navClass => navClass.isActive ? 'active' : ''}>Contact</NavLink>
+                                     className={navClass => navClass.isActive ? 'active' : ''}>{t("Contact")}</NavLink>
                         </li>
                         {auth.user ?
                             <>
                                 <li className="nav__item">
                                     <NavLink to="/inventory"
-                                             className={navClass => navClass.isActive ? 'active' : ''}>Inventaire</NavLink>
+                                             className={navClass => navClass.isActive ? 'active' : ''}>{t("Inventaire")}</NavLink>
                                 </li>
                                 <li className="nav__item">
                                     <NavLink
                                         to="/profile"
                                         className={navClass => navClass.isActive ? 'active' : ''}
                                     >
-                                        Profil
+                                        {t("Profil")}
                                     </NavLink>
                                 </li>
                                 <li className="nav__item">
@@ -84,7 +84,7 @@ const Header = () => {
                                         to="/bank"
                                         className={navClass => navClass.isActive ? 'active' : ''}
                                     >
-                                        Banque
+                                        {t("Banque")}
                                     </NavLink>
                                 </li>
                             </>
@@ -123,7 +123,7 @@ const Header = () => {
                             <span>
                                 <i className="ri-account-circle-line"></i>
                             </span>
-                            Déconnexion
+                            {t("Déconnexion")}
                         </Button>
                     ) : (
                         <>
@@ -134,7 +134,7 @@ const Header = () => {
                             <span>
                                 <i className="ri-account-circle-line"></i>
                             </span>
-                                    Connexion
+                                    {t("Connexion")}
                                 </Button>
                             </Link>
                             <Link to='/register'>
@@ -144,7 +144,7 @@ const Header = () => {
                             <span>
                                 <i className="ri-account-circle-line"></i>
                             </span>
-                                    Inscription
+                                    {t("Inscription")}
                                 </Button>
                             </Link>
                         </>

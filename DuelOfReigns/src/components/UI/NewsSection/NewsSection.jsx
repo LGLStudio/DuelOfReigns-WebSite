@@ -5,6 +5,7 @@ import {getFirestore, collection, getDocs} from 'firebase/firestore/lite';
 import './NewsSection.css';
 import crownImg from '../../../assets/images/crown.png';
 import {getAppInstance} from "../../../utils/firebase.js";
+import {t} from "i18next";
 
 const NewsSection = () => {
     const [newsData, setNewsData] = useState(undefined);
@@ -35,7 +36,7 @@ const NewsSection = () => {
             <Row>
                 <Col lg='12'>
                     <div className="news__section__title">
-                        <h2>Dernières Nouveautés</h2>
+                        <h2>{t("Dernières Nouveautés")}</h2>
                     </div>
                 </Col>
                 {newsData && newsData.map((news, index) => (<Col lg='4' key={index}>
@@ -46,8 +47,8 @@ const NewsSection = () => {
                         <div className="news__info">
                             <h3 className="news__title">{news.title}</h3>
                             <p className="news__description">{news.content}</p>
-                            <Link to={`/news/${news.title?.replace(/\s+/g, '-').toLowerCase()}`}>En savoir
-                                plus
+                            <Link to={`/news/${news.title?.replace(/\s+/g, '-').toLowerCase()}`}>
+                                {t("En savoir plus")}
                             </Link>
                         </div>
                     </div>

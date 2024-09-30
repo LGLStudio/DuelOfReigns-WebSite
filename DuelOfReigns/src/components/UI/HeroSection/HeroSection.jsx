@@ -17,7 +17,8 @@ const HeroSection = () => {
                         <h2>
                             {t('home.HeroSection.title')}
                         </h2>
-                        <p>{t('home.HeroSection.paragraph.part_1')} <b><i>Duel of Reigns</i></b>, {t('home.HeroSection.paragraph.part_2')}
+                        <p>{t('home.HeroSection.paragraph.part_1')} <b><i>{t("Duel of Reigns")}</i></b>,{" "}
+                            {t("un jeu de cartes stratégique établi au cœur d'un monde héroïque-fantaisie. Tissez des alliances stratégiques entre factions, consolidant ainsi votre pouvoir, afin d'imposer votre règne indéfectible !")}
                         </p>
                         <div className="hero__btns d-flex align-items-center gap-4">
                             <Link to={LAUNCHER_URL}>
@@ -26,7 +27,7 @@ const HeroSection = () => {
                                     outline={true}
                                     className="download__btn d-flex align-items-center gap-2">
                                     <i className="ri-download-line"></i>
-                                    {t('button.download')}
+                                    {t('Télécharger le jeu')}
                                 </Button>
                             </Link>
                             <Link to="/tutorial">
@@ -35,7 +36,7 @@ const HeroSection = () => {
                                     color={"warning"}
                                     className=" tutorial__btn d-flex align-items-center gap-2">
                                     <i className="ri-ruler-line"></i>
-                                    Tutoriel
+                                    {t("Tutoriel")}
                                 </Button>
                             </Link>
                         </div>

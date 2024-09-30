@@ -1,8 +1,9 @@
 import React from "react";
+import {t} from "i18next";
 
 const TutorialPage = () => {
     return (
-        <div>Règles</div>
+        <div>{t("Règles")}</div>
     )
 };
 

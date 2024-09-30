@@ -1,8 +1,9 @@
 import React from "react";
+import {t} from "i18next";
 
 const MarketDetailsPage = () => {
     return (
-        <div>Contact</div>
+        <div>{t("Contact")}</div>
     )
 };
 
